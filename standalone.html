@@ -1,0 +1,4123 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PART-TIME | Liquid Glass Marketplace</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   PART-TIME - Liquid Glass Design System (Dark & Light)
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Black Crystal Liquid Glass (Default) */
+  --bg-primary: #000000;
+  --bg-gradient: radial-gradient(circle at 50% -10%, #0d0f1a 0%, #040407 50%, #000000 100%);
+  --glass-bg: rgba(9, 10, 15, 0.74);
+  --glass-bg-hover: rgba(16, 18, 26, 0.88);
+  --glass-card: rgba(7, 8, 12, 0.70);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-hover: rgba(255, 255, 255, 0.36);
+  --glass-inner-highlight: inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.8);
+  --glass-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Brand Accents - Vibrant Crystal Radiance */
+  --accent-cyan: #06b6d4;
+  --accent-cyan-glow: rgba(6, 182, 212, 0.45);
+  --accent-violet: #8b5cf6;
+  --accent-violet-glow: rgba(139, 92, 246, 0.45);
+  --accent-emerald: #10b981;
+  --accent-emerald-glow: rgba(16, 185, 129, 0.45);
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.45);
+  --accent-rose: #f43f5e;
+  
+  /* Fluid Background Crystal Orbs */
+  --orb-1: rgba(6, 182, 212, 0.28);
+  --orb-2: rgba(139, 92, 246, 0.25);
+  --orb-3: rgba(59, 130, 246, 0.22);
+  --orb-4: rgba(236, 72, 153, 0.18);
+  
+  /* UI Metrics */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  
+  --backdrop-blur: blur(32px) saturate(210%);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.15s ease;
+}
+
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-gradient: radial-gradient(circle at 10% 20%, #e0e7ff 0%, #f1f5f9 60%, #e2e8f0 100%);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-bg-hover: rgba(255, 255, 255, 0.82);
+  --glass-card: rgba(255, 255, 255, 0.68);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-border-hover: rgba(99, 102, 241, 0.4);
+  --glass-inner-highlight: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 15px 35px rgba(31, 38, 135, 0.08);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  --orb-1: rgba(56, 189, 248, 0.32);
+  --orb-2: rgba(167, 139, 250, 0.32);
+  --orb-3: rgba(251, 146, 60, 0.25);
+  --orb-4: rgba(52, 211, 153, 0.25);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+  background: var(--bg-primary);
+  background-image: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+.liquid-ambient-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.72;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style paint;
+  pointer-events: none;
+  transition: background 0.5s ease;
+  animation: floatFluid 22s infinite alternate cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+.orb-1 {
+  width: 440px;
+  height: 440px;
+  background: var(--orb-1);
+  top: -10%;
+  left: -5%;
+  animation-duration: 22s;
+}
+
+.orb-2 {
+  width: 520px;
+  height: 520px;
+  background: var(--orb-2);
+  bottom: -15%;
+  right: -5%;
+  animation-duration: 28s;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 360px;
+  height: 360px;
+  background: var(--orb-3);
+  top: 40%;
+  left: 45%;
+  animation-duration: 25s;
+  animation-delay: -10s;
+}
+
+.orb-4 {
+  width: 280px;
+  height: 280px;
+  background: var(--orb-4);
+  bottom: 20%;
+  left: 10%;
+  animation-duration: 18s;
+  animation-delay: -8s;
+}
+
+@keyframes floatFluid {
+  0% { transform: translate3d(0px, 0px, 0) scale(1); }
+  33% { transform: translate3d(50px, -60px, 0) scale(1.08); }
+  66% { transform: translate3d(-40px, 40px, 0) scale(0.95); }
+  100% { transform: translate3d(30px, 60px, 0) scale(1.04); }
+}
+
+.app-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.floating-desktop-bar {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.glass-pill-btn {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.glass-pill-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+}
+
+.glass-pill-btn:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================================================
+   iPhone 15 Pro Max Chassis & Hardware Construction
+   ========================================================================== */
+.iphone-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+/* Titanium Hardware Physical Buttons */
+.iphone-btn-action {
+  position: absolute;
+  left: -4px;
+  top: 140px;
+  width: 4px;
+  height: 34px;
+  background: linear-gradient(to right, #1a1c24, #3a3e4c);
+  border-radius: 3px 0 0 3px;
+  box-shadow: -1px 0 3px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.iphone-btn-action:active {
+  transform: translateX(1.5px);
+}
+
+.iphone-btn-vol-up {
+  position: absolute;
+  left: -4px;
+  top: 195px;
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to right, #1a1c24, #3a3e4c);
+  border-radius: 3px 0 0 3px;
+  box-shadow: -1px 0 3px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.iphone-btn-vol-up:active {
+  transform: translateX(1.5px);
+}
+
+.iphone-btn-vol-down {
+  position: absolute;
+  left: -4px;
+  top: 270px;
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to right, #1a1c24, #3a3e4c);
+  border-radius: 3px 0 0 3px;
+  box-shadow: -1px 0 3px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.iphone-btn-vol-down:active {
+  transform: translateX(1.5px);
+}
+
+.iphone-btn-power {
+  position: absolute;
+  right: -4px;
+  top: 215px;
+  width: 4px;
+  height: 86px;
+  background: linear-gradient(to left, #1a1c24, #3a3e4c);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.iphone-btn-power:active {
+  transform: translateX(-1.5px);
+}
+
+.iphone-wrapper.expanded .iphone-btn-action,
+.iphone-wrapper.expanded .iphone-btn-vol-up,
+.iphone-wrapper.expanded .iphone-btn-vol-down,
+.iphone-wrapper.expanded .iphone-btn-power {
+  display: none;
+}
+
+/* iPhone 15 Pro Max Screen Frame */
+.device-frame {
+  width: 430px;
+  height: 932px;
+  max-height: 94vh;
+  border-radius: 54px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 4.5px solid #232630;
+  outline: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 0 0 1px #090a0d,
+    0 30px 85px rgba(0, 0, 0, 0.95),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.14),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  contain: content;
+  transform: translateZ(0);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.4s ease;
+}
+
+.device-frame.expanded {
+  width: 1060px;
+  height: 900px;
+  max-height: 94vh;
+  border-radius: 32px;
+  border-width: 3px;
+}
+
+/* iOS 18 Status Bar with Dynamic Island */
+.ios-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 52px;
+  padding: 12px 28px 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.device-frame.expanded .ios-status-bar {
+  display: none;
+}
+
+.ios-time {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  pointer-events: auto;
+}
+
+/* iPhone 15 Pro Max Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 36px;
+  background: #000000;
+  border-radius: 24px;
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8), 0 0 0 0.5px rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.35s ease, padding 0.35s ease;
+  overflow: hidden;
+}
+
+.dynamic-island.expanded {
+  width: 360px;
+  height: 68px;
+  border-radius: 32px;
+  padding: 0 18px;
+}
+
+.device-frame.expanded .dynamic-island {
+  display: none;
+}
+
+.island-compact-view {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.island-camera-lens {
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 35% 35%, #1a2238 0%, #080b12 80%);
+  border: 1px solid #1f293d;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px #0284c7;
+}
+
+.island-mic-sensor {
+  width: 7px;
+  height: 7px;
+  background: #06b6d4;
+  opacity: 0.85;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #06b6d4;
+}
+
+.island-expanded-view {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.dynamic-island.expanded .island-compact-view {
+  display: none;
+}
+
+.dynamic-island.expanded .island-expanded-view {
+  display: flex;
+}
+
+/* iOS Status Icons (Signal, 5G, Battery) */
+.ios-status-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.ios-battery-pill {
+  width: 25px;
+  height: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  border-radius: 4px;
+  padding: 1.5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ios-battery-pill::after {
+  content: "";
+  position: absolute;
+  right: -3.5px;
+  top: 3px;
+  width: 2px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 0 1px 1px 0;
+}
+
+.ios-battery-fill {
+  width: 100%;
+  height: 100%;
+  background: var(--accent-emerald);
+  border-radius: 1.5px;
+}
+
+/* iOS Home Indicator Bar */
+.ios-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 138px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 100px;
+  z-index: 50;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.device-frame.expanded .ios-home-indicator {
+  display: none;
+}
+
+/* ==========================================================================
+   App Header & Navigation Components
+   ========================================================================== */
+.app-header {
+  padding: 56px 18px 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: relative;
+  z-index: 20;
+}
+
+.device-frame.expanded .app-header {
+  padding-top: 18px;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 0 12px var(--accent-cyan-glow);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  background: var(--glass-card);
+  transition: var(--transition-smooth);
+}
+
+.avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-btn:hover {
+  transform: scale(1.08);
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.icon-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+.notif-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-rose);
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-primary);
+  animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+  0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+.app-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-title-pill {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-emerald);
+  animation: pulseLive 1.5s infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+.hire-btn {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 4px 15px var(--accent-cyan-glow);
+  transition: var(--transition-smooth);
+}
+
+.hire-btn:hover {
+  box-shadow: 0 6px 20px var(--accent-violet-glow);
+  transform: translateY(-2px);
+}
+
+/* Subheader Banner (KYC & OTP 6767 checkin from sketch) */
+.status-glass-banner {
+  margin: 10px 16px 0 16px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.kyc-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent-emerald);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.otp-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-secondary);
+}
+
+.otp-code {
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  background: rgba(6, 182, 212, 0.12);
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px dashed var(--accent-cyan);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.otp-code:hover {
+  background: rgba(6, 182, 212, 0.25);
+}
+
+.app-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 96px;
+  scroll-behavior: smooth;
+}
+
+.app-viewport::-webkit-scrollbar {
+  width: 4px;
+}
+
+.app-viewport::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+
+.view-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  padding: 14px 16px;
+}
+
+.view-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Search Bar (Matching Sketch: "Job Employee", "Search by Categories") */
+.search-section {
+  margin-bottom: 14px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  height: 46px;
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-xl);
+  padding: 0 42px 0 44px;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.search-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px var(--accent-cyan-glow), var(--glass-inner-highlight);
+  background: var(--glass-bg-hover);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Categories Horizontal Scroller */
+.categories-scroller {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px 2px 6px 2px;
+  margin-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.categories-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.category-chip {
+  flex-shrink: 0;
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.category-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--glass-border-hover);
+  background: var(--glass-bg-hover);
+}
+
+.category-chip.active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0 10px 0;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-subtitle {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.jobs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.device-frame.expanded .jobs-grid {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.job-card {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.job-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transition: 0.6s;
+  pointer-events: none;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35), var(--glass-inner-highlight);
+}
+
+.job-card:hover::before {
+  left: 100%;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.employer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emp-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--glass-border);
+}
+
+.emp-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.emp-rating {
+  font-size: 11px;
+  color: var(--accent-amber);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Big Wage Badge from Sketch (₹100, ₹500, ₹1000, ₹10,000) */
+.wage-badge {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 0 15px var(--accent-cyan-glow);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  text-align: right;
+}
+
+.wage-badge.emerald {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 15px var(--accent-emerald-glow);
+}
+
+.wage-badge.purple {
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 15px var(--accent-violet-glow);
+}
+
+.wage-badge.amber {
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 15px var(--accent-amber-glow);
+}
+
+.wage-amount {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.wage-unit {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.job-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.job-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.job-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.job-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apply-btn {
+  flex: 1;
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  padding: 9px 14px;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px var(--accent-cyan-glow);
+  transition: var(--transition-smooth);
+}
+
+.apply-btn:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+  transform: translateY(-1px);
+}
+
+.apply-btn:active {
+  transform: scale(0.97);
+}
+
+.chat-quick-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.chat-quick-btn:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   VIEW 2: Interactive Live Map View (Sketch: Google Maps, Live Update, Pins)
+   ========================================================================== */
+.map-container {
+  height: 100%;
+  min-height: 580px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: #020205;
+}
+
+[data-theme="light"] .map-container {
+  background: #cbd5e1;
+}
+
+.map-radar-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 65%),
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+}
+
+[data-theme="light"] .map-radar-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.18) 0%, transparent 65%),
+    linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+}
+
+.map-header-bar {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.map-status-pill {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-primary);
+}
+
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.map-pin:hover {
+  transform: translate(-50%, -60%) scale(1.15);
+  z-index: 20;
+}
+
+.pin-bubble {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 2px solid var(--accent-cyan);
+  box-shadow: 0 4px 20px var(--accent-cyan-glow);
+  padding: 4px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-primary);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pin-bubble.emerald {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 4px 20px var(--accent-emerald-glow);
+}
+
+.pin-bubble.purple {
+  border-color: var(--accent-violet);
+  box-shadow: 0 4px 20px var(--accent-violet-glow);
+}
+
+.pin-bubble.amber {
+  border-color: var(--accent-amber);
+  box-shadow: 0 4px 20px var(--accent-amber-glow);
+}
+
+.user-beacon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  pointer-events: none;
+}
+
+.beacon-core {
+  width: 18px;
+  height: 18px;
+  background: #38bdf8;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 16px #38bdf8;
+  position: relative;
+  z-index: 2;
+}
+
+.beacon-wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.25);
+  transform: translate(-50%, -50%);
+  animation: radarWave 2.2s infinite ease-out;
+}
+
+.beacon-label {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+@keyframes radarWave {
+  0% { width: 18px; height: 18px; opacity: 1; }
+  100% { width: 140px; height: 140px; opacity: 0; }
+}
+
+.map-job-sheet {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  z-index: 20;
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   VIEW 3: Chats Tab (Sketch: Arun, Akhila, Ryan, Toby)
+   ========================================================================== */
+.chat-tab-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.device-frame.expanded .chat-tab-container {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  height: 700px;
+  gap: 16px;
+}
+
+.chat-list-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-contact-item {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.chat-contact-item:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateX(3px);
+}
+
+.chat-contact-item.active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(139, 92, 246, 0.18) 100%);
+  border-color: var(--accent-cyan);
+}
+
+.contact-avatar-wrap {
+  position: relative;
+}
+
+.contact-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 1px solid var(--glass-border);
+}
+
+.contact-online-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  border: 2px solid var(--bg-primary);
+}
+
+.contact-online-dot.away {
+  background: var(--accent-amber);
+}
+
+.contact-online-dot.offline {
+  background: var(--text-muted);
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.contact-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.contact-time {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.contact-preview {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-job-pill {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-top: 3px;
+}
+
+.chat-thread-pane {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 580px;
+  overflow: hidden;
+}
+
+.device-frame.expanded .chat-thread-pane {
+  height: 100%;
+}
+
+.chat-thread-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.thread-user-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.thread-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chat-messages-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msg-bubble {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+  word-break: break-word;
+}
+
+.msg-bubble.them {
+  align-self: flex-start;
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  border-bottom-left-radius: 4px;
+}
+
+.msg-bubble.me {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+}
+
+.msg-time {
+  font-size: 9px;
+  opacity: 0.7;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.chat-quick-actions {
+  display: flex;
+  gap: 6px;
+  padding: 8px 14px;
+  border-top: 1px solid var(--glass-border);
+  overflow-x: auto;
+}
+
+.quick-reply-pill {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.quick-reply-pill:hover {
+  background: var(--glass-bg-hover);
+  color: var(--text-primary);
+  border-color: var(--accent-cyan);
+}
+
+.chat-input-bar {
+  padding: 10px 14px;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.chat-input {
+  flex: 1;
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.chat-send-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--accent-cyan-glow);
+  transition: var(--transition-smooth);
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   VIEW 4: Recent Activities
+   ========================================================================== */
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recent-card {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+
+.recent-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+.recent-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.recent-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.recent-type {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.recent-date {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.recent-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.recent-wage {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent-emerald);
+}
+
+.recent-status-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.recent-status-pill.emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid var(--accent-emerald);
+}
+
+.recent-status-pill.cyan {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid var(--accent-cyan);
+}
+
+.recent-status-pill.amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber);
+}
+
+/* ==========================================================================
+   VIEW 5: Wallet Tab (Sketch: Balance ₹1000, UPI / GPay, Redeem)
+   ========================================================================== */
+.wallet-card-container {
+  margin-bottom: 20px;
+}
+
+.liquid-wallet-card {
+  width: 100%;
+  height: 195px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%),
+              radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.35) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.35) 0%, transparent 60%);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.35);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-wallet-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+  transform: rotate(30deg);
+  animation: shimmerCard 8s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes shimmerCard {
+  0% { transform: translateY(-100%) rotate(30deg); }
+  100% { transform: translateY(100%) rotate(30deg); }
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-chip {
+  width: 36px;
+  height: 28px;
+  background: linear-gradient(135deg, #fcd34d 0%, #b45309 100%);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-upi-logo {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-balance-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.balance-val {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-holder {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.card-id-tag {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.wallet-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wallet-action-btn {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.wallet-action-btn.primary {
+  background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px var(--accent-emerald-glow);
+}
+
+.wallet-action-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--glass-border-hover);
+}
+
+.wallet-action-btn:active {
+  transform: scale(0.97);
+}
+
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tx-row {
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tx-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tx-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+}
+
+.tx-icon-wrap.credit {
+  color: var(--accent-emerald);
+}
+
+.tx-icon-wrap.debit {
+  color: var(--accent-rose);
+}
+
+.tx-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.tx-date {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.tx-amount {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.tx-amount.credit {
+  color: var(--accent-emerald);
+}
+
+.tx-amount.debit {
+  color: var(--accent-rose);
+}
+
+/* ==========================================================================
+   BOTTOM LIQUID GLASS NAVIGATION BAR (Home, Map, Chat, Recent, Wallet)
+   ========================================================================== */
+.liquid-navbar {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  height: 68px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+  z-index: 40;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 54px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.nav-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--text-primary);
+}
+
+.nav-item:hover svg {
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  color: var(--accent-cyan);
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+}
+
+.nav-item.active svg {
+  transform: scale(1.15);
+}
+
+.nav-badge {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-rose);
+  color: white;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   MODALS & DRAWERS (Liquid Glass Backdrop)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.glass-modal {
+  width: 90%;
+  max-width: 440px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1.5px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.92);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .glass-modal {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: var(--glass-bg-hover);
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.modal-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  background: var(--glass-card);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px var(--accent-cyan-glow);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 20px var(--accent-cyan-glow);
+  margin-top: 10px;
+  transition: var(--transition-smooth);
+}
+
+.modal-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--accent-violet-glow);
+}
+
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.liquid-toast {
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-inner-highlight), 0 15px 35px rgba(0, 0, 0, 0.4);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: toastFadeIn 0.3s ease, toastFadeOut 0.3s ease 2.7s forwards;
+}
+
+@keyframes toastFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-12px); }
+}
+
+/* ==========================================================================
+   60 FPS Performance Engine & Hardware Acceleration
+   ========================================================================== */
+.job-card, .recent-card, .tx-row, .chat-contact-item, .category-chip {
+  contain: layout style paint;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.app-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding-bottom: 96px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  will-change: scroll-position;
+  transform: translateZ(0);
+}
+
+/* Dynamic Island Live Activity Content */
+.island-pulse-icon {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-emerald);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-emerald);
+  animation: pulseLive 1.5s infinite;
+}
+
+.island-wave-bars {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.island-bar {
+  width: 2.5px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+  animation: barEqualizer 1s infinite alternate ease-in-out;
+}
+
+.island-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+.island-bar:nth-child(2) { height: 14px; animation-delay: 0.3s; }
+.island-bar:nth-child(3) { height: 9px; animation-delay: 0.2s; }
+.island-bar:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+
+@keyframes barEqualizer {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1); }
+}
+
+/* GPU Turbo Performance Mode (For low-end hardware) */
+body.perf-turbo {
+  --backdrop-blur: blur(14px) saturate(160%);
+}
+
+body.perf-turbo .liquid-orb {
+  filter: blur(28px);
+  animation-duration: 35s;
+  opacity: 0.55;
+}
+
+body.perf-turbo .job-card::before {
+  display: none;
+}
+
+
+</style>
+</head>
+<body>
+
+  <!-- Fluid Liquid Ambient Mesh Background -->
+  <div class="liquid-ambient-container">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+    <div class="liquid-orb orb-4"></div>
+  </div>
+
+  <!-- Floating Desktop Toolbar -->
+  <div class="floating-desktop-bar">
+    <button class="glass-pill-btn" id="btn-toggle-frame" title="Toggle between iPhone 15 Pro Max and expanded dashboard">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+      <span id="frame-mode-text">Expand View</span>
+    </button>
+    <button class="glass-pill-btn" id="btn-toggle-theme" title="Switch between Black Crystal and Light Crystal theme">
+      <span id="theme-icon">💎</span>
+      <span id="theme-text">Black Crystal</span>
+    </button>
+    <button class="glass-pill-btn" id="btn-toggle-sound" title="Toggle audio feedback">
+      <span id="sound-icon">🔊</span>
+      <span>Sound ON</span>
+    </button>
+  </div>
+
+  <!-- Main App Wrapper with iPhone 15 Pro Max Chassis -->
+  <div class="app-container">
+    <div class="iphone-wrapper" id="iphone-wrapper">
+      <!-- Hardware Physical Buttons (Titanium Finish) -->
+      <div class="iphone-btn-action" title="Action Button"></div>
+      <div class="iphone-btn-vol-up" title="Volume Up"></div>
+      <div class="iphone-btn-vol-down" title="Volume Down"></div>
+      <div class="iphone-btn-power" title="Side Power Button"></div>
+
+      <!-- iPhone 15 Pro Max Screen Frame -->
+      <div class="device-frame" id="device-frame">
+        
+        <!-- iOS 18 Status Bar with Interactive Dynamic Island -->
+        <div class="ios-status-bar">
+          <span class="ios-time" id="ios-clock">9:41</span>
+          
+          <!-- Dynamic Island (Interactive Live Activity) -->
+          <div class="dynamic-island" id="dynamic-island" title="Tap to inspect Live Activity">
+            <div class="island-compact-view">
+              <div class="island-camera-lens"></div>
+              <div class="island-mic-sensor"></div>
+            </div>
+            <div class="island-expanded-view">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="island-pulse-icon"></span>
+                <div style="display: flex; flex-direction: column;">
+                  <span style="font-size: 11px; font-weight: 700;">Arun's Cafe Shift</span>
+                  <span style="font-size: 9px; color: var(--accent-cyan);">Starts in 35m • PIN 6767</span>
+                </div>
+              </div>
+              <div class="island-wave-bars">
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- iOS Status Icons -->
+          <div class="ios-status-right">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="white">
+              <rect x="0" y="8" width="3" height="3" rx="0.5"/>
+              <rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/>
+              <rect x="9" y="3" width="3" height="8" rx="0.5"/>
+              <rect x="13.5" y="0" width="3" height="11" rx="0.5"/>
+            </svg>
+            <span style="font-size: 10.5px; font-weight: 700; color: #fff; margin: 0 1px;">5G</span>
+            <div class="ios-battery-pill">
+              <div class="ios-battery-fill"></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Top Header (From Sketch: Account, Notifications, Title, Settings & Hire) -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="avatar-btn" id="btn-open-account" title="Account Settings & Personalisation">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Alex Chen" id="header-avatar">
+          </div>
+          <button class="icon-btn" id="btn-open-notifs" title="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notif-badge" id="header-notif-count">2</span>
+          </button>
+        </div>
+
+        <div class="app-brand">
+          <div class="app-title-pill">
+            <span class="live-dot"></span>
+            PART-TIME
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="hire-btn" id="btn-open-hire" title="Post a Vacancy (Employer)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <span>HIRE</span>
+          </button>
+          <button class="icon-btn" id="btn-open-settings" title="Settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- KYC Verification & One-Time PIN Status Banner (From Sketch) -->
+      <div class="status-glass-banner">
+        <div class="kyc-badge" id="banner-kyc-btn" title="View KYC Age Verification Status">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Age &ge; 18 Verified (KYC)</span>
+        </div>
+        <div class="otp-tag">
+          <span>PIN:</span>
+          <span class="otp-code" id="banner-otp" title="Click to copy check-in PIN">6767</span>
+        </div>
+      </div>
+
+      <!-- Scrollable Main Viewport -->
+      <main class="app-viewport">
+
+        <!-- ==========================================
+             VIEW 1: HOME (Matching Sketch Feed)
+             ========================================== -->
+        <section class="view-panel active" id="view-home">
+          <!-- Search Section (Sketch: "Job Employee", "Search by Categories") -->
+          <div class="search-section">
+            <div class="search-box">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" class="search-input" id="search-jobs-input" placeholder="Search Job, Role or Employee..." autocomplete="off">
+              <button class="clear-search-btn" id="btn-clear-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Categories Scroller -->
+          <div class="categories-scroller" id="categories-container">
+            <button class="category-chip active" data-category="All">✨ All Gigs</button>
+            <button class="category-chip" data-category="Cafe">☕ Café & Food</button>
+            <button class="category-chip" data-category="Promotion">📢 Promo & Sales</button>
+            <button class="category-chip" data-category="Events">🎪 Events & Ushers</button>
+            <button class="category-chip" data-category="Logistics">📦 Logistics & Expo</button>
+            <button class="category-chip" data-category="Retail">🛍️ Retail Store</button>
+            <button class="category-chip" data-category="Delivery">🚀 Express Delivery</button>
+          </div>
+
+          <!-- Section Heading -->
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Job Offers & Vacancies</span>
+            </div>
+            <span class="section-subtitle" id="jobs-count-text">Showing 6 jobs</span>
+          </div>
+
+          <!-- Jobs Grid (Cards matching ₹100, ₹500, ₹1000, ₹10,000 from sketch) -->
+          <div class="jobs-grid" id="home-jobs-grid">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: MAP (Matching Sketch: Google Maps, Live Update, Pins)
+             ========================================== -->
+        <section class="view-panel" id="view-map">
+          <div class="map-container" id="map-radar-container">
+            <div class="map-radar-bg"></div>
+
+            <!-- Map Header Control Bar -->
+            <div class="map-header-bar">
+              <div class="map-status-pill">
+                <span class="live-dot"></span>
+                <span>Live Radar</span>
+              </div>
+              <div class="map-status-pill" id="map-radius-selector" style="cursor: pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+                <span id="radius-text">Radius: 5 km</span>
+              </div>
+            </div>
+
+            <!-- Animated "Here" User Beacon Marker from Sketch -->
+            <div class="user-beacon" id="user-beacon">
+              <div class="beacon-wave"></div>
+              <div class="beacon-core"></div>
+              <div class="beacon-label">📍 You are Here</div>
+            </div>
+
+            <!-- Job Markers Container (Populated via JS) -->
+            <div id="map-pins-container"></div>
+
+            <!-- Slide-up Job Preview Sheet -->
+            <div class="map-job-sheet" id="map-job-sheet" style="display: none;">
+              <div class="card-top">
+                <div class="employer-info">
+                  <img src="" class="emp-avatar" id="sheet-emp-avatar" alt="Emp">
+                  <div class="emp-meta">
+                    <span class="emp-name" id="sheet-emp-name"></span>
+                    <span class="emp-rating" id="sheet-emp-rating">★ 4.9</span>
+                  </div>
+                </div>
+                <div class="wage-badge" id="sheet-wage-badge">
+                  <span class="wage-amount" id="sheet-wage-amount">₹500</span>
+                  <span class="wage-unit" id="sheet-wage-unit">shift</span>
+                </div>
+              </div>
+              <div class="job-title" id="sheet-job-title" style="margin: 8px 0 4px 0; font-size: 14px;"></div>
+              <div class="section-subtitle" id="sheet-job-loc" style="margin-bottom: 10px;"></div>
+              <div class="card-actions">
+                <button class="apply-btn" id="sheet-apply-btn">Quick Apply (PIN 6767)</button>
+                <button class="chat-quick-btn" id="sheet-chat-btn" title="Chat with Employer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: CHATS (Matching Sketch: Arun, Akhila, Ryan, Toby)
+             ========================================== -->
+        <section class="view-panel" id="view-chat">
+          <div class="chat-tab-container">
+            <!-- Contact List Pane -->
+            <div class="chat-list-pane" id="chat-list-pane">
+              <div class="search-box" style="margin-bottom: 6px;">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" class="search-input" id="search-chats-input" placeholder="Search conversations..." style="height: 38px; font-size: 12px;">
+              </div>
+              <div id="chat-contacts-list">
+                <!-- Arun, Akhila, Ryan, Toby rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Active Thread Pane -->
+            <div class="chat-thread-pane" id="chat-thread-pane">
+              <div class="chat-thread-header">
+                <div class="thread-user-details">
+                  <button class="icon-btn" id="btn-back-to-contacts" style="width: 28px; height: 28px;" title="Back">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <img src="" class="contact-avatar" id="active-thread-avatar" alt="Avatar" style="width: 32px; height: 32px;">
+                  <div>
+                    <div class="contact-name" id="active-thread-name">Arun</div>
+                    <div class="section-subtitle" id="active-thread-status" style="font-size: 10px; color: var(--accent-emerald);">Online • Cafe Shift Manager</div>
+                  </div>
+                </div>
+                <div class="thread-actions">
+                  <button class="icon-btn" id="btn-simulate-call" style="width: 32px; height: 32px;" title="Call Employer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Message Stream -->
+              <div class="chat-messages-body" id="chat-messages-container">
+                <!-- Messages appended by JS -->
+              </div>
+
+              <!-- Quick Chips from Sketch (OTP 6767, Payment, Location) -->
+              <div class="chat-quick-actions">
+                <button class="quick-reply-pill" data-quick="Here is my attendance PIN: 6767">🔑 Share PIN 6767</button>
+                <button class="quick-reply-pill" data-quick="I have arrived at the location!">📍 I've Arrived</button>
+                <button class="quick-reply-pill" data-quick="Shift completed. Requesting payment approval.">💰 Request Pay</button>
+              </div>
+
+              <!-- Input Bar -->
+              <form class="chat-input-bar" id="chat-input-form">
+                <input type="text" class="chat-input" id="chat-text-input" placeholder="Type message..." autocomplete="off">
+                <button type="submit" class="chat-send-btn" id="btn-send-message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: RECENT (Matching Sketch: Recent activity, history)
+             ========================================== -->
+        <section class="view-panel" id="view-recent">
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Recent Shift History</span>
+            </div>
+            <span class="section-subtitle">Verified on blockchain</span>
+          </div>
+
+          <div class="recent-list" id="recent-activities-list">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: WALLET (Matching Sketch: "wallet", "Balance ₹1000", "UPI / Gpay", "Redeem")
+             ========================================== -->
+        <section class="view-panel" id="view-wallet">
+          <div class="wallet-card-container">
+            <!-- Holographic Liquid Glass Card -->
+            <div class="liquid-wallet-card">
+              <div class="card-top-row">
+                <div class="card-chip"></div>
+                <div class="card-upi-logo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span>UPI PAY</span>
+                </div>
+              </div>
+
+              <div class="card-balance-section">
+                <span class="balance-label">Available Earnings</span>
+                <span class="balance-val" id="wallet-balance-display">₹1,000</span>
+              </div>
+
+              <div class="card-bottom-row">
+                <div>
+                  <div class="card-holder" id="wallet-user-name">ALEX CHEN</div>
+                  <div class="card-id-tag">KYC VERIFIED &ge; 18</div>
+                </div>
+                <div class="card-id-tag" id="wallet-upi-tag">alexchen@okaxis</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons Grid (UPI / GPay Cashout) -->
+          <div class="wallet-actions-grid">
+            <button class="wallet-action-btn primary" id="btn-open-cashout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+              <span>UPI / GPay Cashout</span>
+            </button>
+            <button class="wallet-action-btn" id="btn-open-deposit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              <span>Add Money</span>
+            </button>
+          </div>
+
+          <!-- Transaction Ledger -->
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>Transaction History</span>
+            </div>
+            <span class="section-subtitle">Auto Settled</span>
+          </div>
+
+          <div class="transactions-list" id="wallet-tx-list">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ==========================================
+           BOTTOM NAVBAR (5 Tabs: Home, Map, Chat, Recent, Wallet)
+           ========================================== -->
+      <nav class="liquid-navbar">
+        <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button class="nav-item" id="nav-map" data-view="view-map" title="Live Radar Map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span class="nav-label">Map</span>
+        </button>
+
+        <button class="nav-item" id="nav-chat" data-view="view-chat" title="Messages & Offers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <span class="nav-label">Chat</span>
+          <span class="nav-badge" id="nav-chat-badge">3</span>
+        </button>
+
+        <button class="nav-item" id="nav-recent" data-view="view-recent" title="Recent Shifts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="nav-label">Recent</span>
+        </button>
+
+        <button class="nav-item" id="nav-wallet" data-view="view-wallet" title="Wallet & Payouts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <span class="nav-label">Wallet</span>
+        </button>
+      </nav>
+
+        <!-- iOS Home Indicator -->
+        <div class="ios-home-indicator"></div>
+      </div><!-- end device-frame -->
+    </div><!-- end iphone-wrapper -->
+  </div><!-- end app-container -->
+
+  <!-- ==========================================
+       MODALS & DRAWERS
+       ========================================== -->
+
+  <!-- Modal 1: Account Personalisation & KYC (Age >= 18) -->
+  <div class="modal-overlay" id="modal-account">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Account Personalisation</div>
+      <div class="modal-subtitle">Manage worker profile, KYC status, and preferences</div>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" style="width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--accent-cyan);">
+        <div>
+          <div style="font-weight: 800; font-size: 15px;">Alex Chen</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">alex.chen@parttime.io</div>
+          <div style="margin-top: 4px; display: inline-flex; align-items: center; gap: 4px; background: rgba(16,185,129,0.15); border: 1px solid var(--accent-emerald); color: var(--accent-emerald); padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700;">
+            &#10003; KYC Verified (Age 22 &ge; 18)
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Active Role</label>
+        <select class="form-select" id="account-role-select">
+          <option value="employee">Job Seeker / Part-Time Employee</option>
+          <option value="employer">Employer / Business Hirer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Government ID (KYC)</label>
+        <input type="text" class="form-input" value="Aadhaar Card: •••• •••• 8839" readonly>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Hourly Pay Rate Expectation (₹)</label>
+        <div style="display: flex; gap: 10px;">
+          <input type="number" class="form-input" value="250" placeholder="Min ₹">
+          <input type="number" class="form-input" value="1200" placeholder="Max ₹">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Check-in Handshake PIN</label>
+        <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); padding: 10px 14px; border-radius: 12px;">
+          <span style="font-size: 12px; color: var(--text-secondary);">Your Universal Shift PIN</span>
+          <span class="otp-code" style="font-size: 15px;">6767</span>
+        </div>
+      </div>
+
+      <button class="modal-submit-btn" id="btn-save-account">Save Personalisation</button>
+    </div>
+  </div>
+
+  <!-- Modal 2: Post a Job (+ HIRE Button from sketch) -->
+  <div class="modal-overlay" id="modal-hire">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Post New Part-Time Vacancy</div>
+      <div class="modal-subtitle">Hire pre-verified workers in your local area</div>
+
+      <form id="hire-form">
+        <div class="form-group">
+          <label class="form-label">Job Title / Role</label>
+          <input type="text" class="form-input" id="hire-title" placeholder="e.g. Weekend Cafe Barista" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="hire-category">
+              <option value="Cafe">☕ Café & Food</option>
+              <option value="Promotion">📢 Promotion</option>
+              <option value="Events">🎪 Events</option>
+              <option value="Logistics">📦 Logistics</option>
+              <option value="Retail">🛍️ Retail</option>
+              <option value="Delivery">🚀 Delivery</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Wage (₹)</label>
+            <input type="number" class="form-input" id="hire-wage" placeholder="e.g. 500" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Duration</label>
+            <input type="text" class="form-input" id="hire-duration" placeholder="e.g. 4 Hours" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Slots Available</label>
+            <input type="number" class="form-input" id="hire-slots" value="2" min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Location / Landmark</label>
+          <input type="text" class="form-input" id="hire-location" placeholder="e.g. Indiranagar 100ft Road" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description & Shift Notes</label>
+          <textarea class="form-textarea" id="hire-desc" placeholder="Details about requirements, attire, and duties..."></textarea>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">Publish Vacancy</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Notifications Center -->
+  <div class="modal-overlay" id="modal-notifs">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Notifications</div>
+      <div class="modal-subtitle">Real-time alerts, payment updates, and shift calls</div>
+      <div id="notifs-list-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+    </div>
+  </div>
+
+  <!-- Modal 4: UPI / GPay Cashout -->
+  <div class="modal-overlay" id="modal-cashout">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">UPI Instant Cashout</div>
+      <div class="modal-subtitle">Transfer funds directly to your bank account via UPI</div>
+
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-emerald); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
+        <span style="font-size: 11px; color: var(--text-secondary);">Available to Withdraw:</span>
+        <div style="font-size: 24px; font-weight: 800; color: var(--accent-emerald);" id="cashout-available-balance">₹1,000</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Amount to Cashout (₹)</label>
+        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="200">₹200</button>
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="500">₹500</button>
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="1000">₹1,000</button>
+        </div>
+        <input type="number" class="form-input" id="cashout-amount" value="500" min="50">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">UPI ID / VPA</label>
+        <input type="text" class="form-input" id="cashout-upi" value="alexchen@okaxis">
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+        <span style="font-size: 11px; color: var(--text-muted);">Transfer Mode: Google Pay (GPay) / PhonePe / BHIM</span>
+      </div>
+
+      <button class="modal-submit-btn" id="btn-confirm-cashout">Instant Transfer via UPI</button>
+    </div>
+  </div>
+
+  <!-- Modal 5: Quick Apply & Job Confirmation -->
+  <div class="modal-overlay" id="modal-apply-confirm">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title" id="apply-modal-title">Apply for Shift</div>
+      <div class="modal-subtitle" id="apply-modal-emp">Arun's Cafe & Roasters</div>
+
+      <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-cyan); padding: 14px; border-radius: 12px; margin-bottom: 14px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-cyan);">Instant Check-in Handshake</div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+          When your application is confirmed, present your Universal Check-in PIN to the shift manager:
+        </div>
+        <div style="margin-top: 8px; font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: 2px;">
+          PIN: <span style="color: var(--accent-cyan);">6767</span>
+        </div>
+      </div>
+
+      <div id="apply-modal-details" style="font-size: 12px; line-height: 1.5; color: var(--text-secondary); margin-bottom: 16px;"></div>
+
+      <button class="modal-submit-btn" id="btn-submit-job-apply">Confirm & Send Application</button>
+    </div>
+  </div>
+
+  <!-- Modal 6: Settings Menu -->
+  <div class="modal-overlay" id="modal-settings">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Settings</div>
+      <div class="modal-subtitle">Liquid Glass Theme & Application Preferences</div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Appearance Theme</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Switch between Black Crystal & Crystal Light</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-settings-theme" style="padding: 4px 12px; font-size: 11px;">Toggle Theme</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Sound Effects & Haptics</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Web Audio tactile feedback on actions</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-settings-sound" style="padding: 4px 12px; font-size: 11px;">Toggle Sound</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Age & KYC Status</div>
+            <div style="font-size: 11px; color: var(--accent-emerald);">Age &ge; 18 Verified &#10003;</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-reverify-kyc" style="padding: 4px 12px; font-size: 11px;">View KYC</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+          <div>
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-rose);">Sign Out</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Switch account or role</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-signout" style="padding: 4px 12px; font-size: 11px; color: var(--accent-rose);">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script>
+const INITIAL_DATA = {
+  user: {
+    name: "Alex Chen",
+    role: "Freelance Specialist & Shift Worker",
+    userType: "employee",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80",
+    phone: "+91 98765 43210",
+    email: "alex.chen@parttime.io",
+    upiId: "alexchen@okaxis",
+    age: 22,
+    isAgeVerified: true,
+    kycStatus: "verified",
+    kycIdType: "Aadhaar Card (Verified)",
+    kycDocNumber: "•••• •••• 8839",
+    hourlyRateRange: { min: 250, max: 1200 },
+    skills: ["Barista & Brewing", "Event Management", "Retail POS", "Photography", "Customer Care"],
+    activeOtp: "6767",
+    completedGigsCount: 28,
+    rating: 4.95
+  },
+
+  wallet: {
+    balance: 1000,
+    currency: "\u20B9",
+    upiId: "alexchen@okaxis",
+    linkedBank: "HDFC Bank •••• 4091",
+    transactions: [
+      {
+        id: "tx-101",
+        title: "Akhila's Brew Lab - Evening Shift",
+        category: "Shift Payout",
+        amount: 500,
+        type: "credit",
+        date: "Today, 11:30 AM",
+        status: "Completed",
+        icon: "coffee"
+      },
+      {
+        id: "tx-102",
+        title: "UPI Transfer to GPay",
+        category: "Withdrawal",
+        amount: 300,
+        type: "debit",
+        date: "Yesterday, 04:15 PM",
+        status: "Completed",
+        icon: "arrow-up-right"
+      },
+      {
+        id: "tx-103",
+        title: "City Promo Flyer Distribution",
+        category: "Micro Shift",
+        amount: 100,
+        type: "credit",
+        date: "Sep 12, 02:00 PM",
+        status: "Completed",
+        icon: "sparkles"
+      },
+      {
+        id: "tx-104",
+        title: "Weekend Tech Usher Bonus",
+        category: "Bonus Payout",
+        amount: 700,
+        type: "credit",
+        date: "Sep 10, 08:45 PM",
+        status: "Completed",
+        icon: "award"
+      }
+    ]
+  },
+
+  jobs: [
+    {
+      id: "job-101",
+      title: "Express Flyer & Promo Distributor",
+      employer: "Arun's Cafe & Roasters",
+      employerAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+      employerRating: 4.8,
+      category: "Promotion",
+      wage: 100,
+      wageUnit: "per hour",
+      duration: "2 Hours",
+      timeSlot: "Today, 4:00 PM - 6:00 PM",
+      distanceKm: 0.8,
+      location: "Metro Station Exit 3, Indiranagar",
+      coords: { x: 38, y: 46 },
+      tags: ["Instant Payout", "Urgent", "No Exp Required"],
+      description: "Distribute promotional tasting vouchers to evening commuters near the main gate. Friendly attitude required. Refreshments provided!",
+      openSlots: 2,
+      checkInPin: "6767",
+      isUrgent: true,
+      badgeColor: "cyan"
+    },
+    {
+      id: "job-102",
+      title: "Artisan Coffee Barista & Counter",
+      employer: "Akhila's Brew Lab",
+      employerAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+      employerRating: 4.9,
+      category: "Cafe",
+      wage: 500,
+      wageUnit: "4-hour shift",
+      duration: "4 Hours",
+      timeSlot: "Today, 5:00 PM - 9:00 PM",
+      distanceKm: 1.4,
+      location: "12th Main Road, Koramangala 4th Block",
+      coords: { x: 62, y: 32 },
+      tags: ["Verified Employer", "Meals Included", "Tips Keep 100%"],
+      description: "Assist our head barista during the busy evening peak hours. Espresso machine basics preferred. Friendly team environment.",
+      openSlots: 1,
+      checkInPin: "6767",
+      isUrgent: false,
+      badgeColor: "amber"
+    },
+    {
+      id: "job-103",
+      title: "VIP Tech Summit Usher & Registration",
+      employer: "Ryan's Media Con",
+      employerAvatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+      employerRating: 5.0,
+      category: "Events",
+      wage: 1000,
+      wageUnit: "single day",
+      duration: "6 Hours",
+      timeSlot: "Tomorrow, 9:00 AM - 3:00 PM",
+      distanceKm: 2.8,
+      location: "Grand Convention Center, Hall B",
+      coords: { x: 74, y: 68 },
+      tags: ["Instant UPI", "Certificate Provided", "Free Lunch"],
+      description: "Scan attendee QR passes, issue delegate badges, and guide VIP keynote speakers to the lounge. Formal smart casual dress code.",
+      openSlots: 4,
+      checkInPin: "6767",
+      isUrgent: true,
+      badgeColor: "emerald"
+    },
+    {
+      id: "job-104",
+      title: "Weekend Expo Booth Coordinator",
+      employer: "Toby Logistics & Events",
+      employerAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+      employerRating: 4.9,
+      category: "Logistics",
+      wage: 10000,
+      wageUnit: "weekend gig",
+      duration: "2 Days (Sat - Sun)",
+      timeSlot: "Sat & Sun, 10:00 AM - 7:00 PM",
+      distanceKm: 4.5,
+      location: "BIEC Exhibition Grounds, Pavilion 4",
+      coords: { x: 22, y: 76 },
+      tags: ["High Payout", "Team Lead", "Transport Included"],
+      description: "Lead on-ground product demos, organize inventory restocking, and coordinate a 6-person brand ambassador team across the weekend trade show.",
+      openSlots: 1,
+      checkInPin: "6767",
+      isUrgent: false,
+      badgeColor: "purple"
+    },
+    {
+      id: "job-105",
+      title: "Retail Merchandising & Display Assistant",
+      employer: "Urban Clothiers",
+      employerAvatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80",
+      employerRating: 4.7,
+      category: "Retail",
+      wage: 650,
+      wageUnit: "evening shift",
+      duration: "5 Hours",
+      timeSlot: "Tonight, 6:00 PM - 11:00 PM",
+      distanceKm: 1.9,
+      location: "Forum Mall, 2nd Floor, Whitefield",
+      coords: { x: 80, y: 22 },
+      tags: ["Staff Discount", "AC Environment"],
+      description: "Steam clothing, organize size racks, and maintain the front display window aesthetics during the weekend festive rush.",
+      openSlots: 3,
+      checkInPin: "6767",
+      isUrgent: false,
+      badgeColor: "indigo"
+    },
+    {
+      id: "job-106",
+      title: "Rapid Dark Store Order Packer",
+      employer: "QuickBasket Express",
+      employerAvatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80",
+      employerRating: 4.6,
+      category: "Delivery",
+      wage: 450,
+      wageUnit: "3-hour surge",
+      duration: "3 Hours",
+      timeSlot: "Today, 7:00 PM - 10:00 PM",
+      distanceKm: 1.1,
+      location: "Hub 9, BTM 2nd Stage",
+      coords: { x: 45, y: 82 },
+      tags: ["Surge Bonus", "Performance Bonus"],
+      description: "Pick and pack grocery basket orders under 5 minutes for dispatch riders. Fast-paced and fun warehouse environment.",
+      openSlots: 5,
+      checkInPin: "6767",
+      isUrgent: true,
+      badgeColor: "rose"
+    }
+  ],
+
+  chats: [
+    {
+      id: "chat-arun",
+      contactName: "Arun",
+      role: "Cafe Shift Manager",
+      company: "Arun's Cafe & Roasters",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+      status: "online",
+      unreadCount: 1,
+      lastMessageTime: "2m ago",
+      jobReference: "Express Flyer & Promo (\u20B9100/hr)",
+      messages: [
+        {
+          id: "m1",
+          sender: "them",
+          text: "Hey Alex! Saw your profile. Are you available for the 4:00 PM distribution gig near Indiranagar?",
+          time: "2:15 PM"
+        },
+        {
+          id: "m2",
+          sender: "me",
+          text: "Hi Arun! Yes, definitely available. I can be there by 3:50 PM.",
+          time: "2:18 PM"
+        },
+        {
+          id: "m3",
+          sender: "them",
+          text: "Awesome! Please remember our check-in PIN code is 6767. See you soon!",
+          time: "2:20 PM"
+        }
+      ]
+    },
+    {
+      id: "chat-akhila",
+      contactName: "Akhila",
+      role: "Head Roaster & Store Lead",
+      company: "Akhila's Brew Lab",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+      status: "online",
+      unreadCount: 0,
+      lastMessageTime: "1h ago",
+      jobReference: "Artisan Coffee Barista (\u20B9500/shift)",
+      messages: [
+        {
+          id: "m10",
+          sender: "them",
+          text: "Alex, great work on the pour-overs yesterday! The customer reviews were glowing.",
+          time: "Yesterday, 9:15 PM"
+        },
+        {
+          id: "m11",
+          sender: "me",
+          text: "Thank you Akhila! Loved the beans blend. Did the hours log correctly?",
+          time: "Yesterday, 9:20 PM"
+        },
+        {
+          id: "m12",
+          sender: "them",
+          text: "Yes, I approved your payout of \u20B9500 directly into your PART-TIME wallet just now!",
+          time: "11:30 AM"
+        }
+      ]
+    },
+    {
+      id: "chat-ryan",
+      contactName: "Ryan",
+      role: "Event Operations Supervisor",
+      company: "Ryan's Media Con",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+      status: "away",
+      unreadCount: 2,
+      lastMessageTime: "3h ago",
+      jobReference: "VIP Tech Summit Usher (\u20B91,000/day)",
+      messages: [
+        {
+          id: "m20",
+          sender: "them",
+          text: "Hi Alex, you are confirmed for tomorrow's Tech Summit at Hall B.",
+          time: "10:00 AM"
+        },
+        {
+          id: "m21",
+          sender: "them",
+          text: "Check-in at Gate 2 with your One-Time PIN 6767. Breakfast will be ready at 8:30 AM.",
+          time: "10:02 AM"
+        }
+      ]
+    },
+    {
+      id: "chat-toby",
+      contactName: "Toby",
+      role: "Logistics Lead",
+      company: "Toby Logistics & Events",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80",
+      status: "offline",
+      unreadCount: 0,
+      lastMessageTime: "Yesterday",
+      jobReference: "Weekend Expo Coordinator (\u20B910,000/gig)",
+      messages: [
+        {
+          id: "m30",
+          sender: "them",
+          text: "Shift completed! Thanks for handling the inventory booth so smoothly last time.",
+          time: "Yesterday, 6:00 PM"
+        },
+        {
+          id: "m31",
+          sender: "me",
+          text: "Anytime Toby! Looking forward to the upcoming weekend expo.",
+          time: "Yesterday, 6:15 PM"
+        }
+      ]
+    }
+  ],
+
+  recentActivities: [
+    {
+      id: "act-1",
+      title: "Barista Shift - Akhila's Brew Lab",
+      type: "Completed Shift",
+      wage: "\u20B9500",
+      date: "Today, 11:30 AM",
+      status: "Settled",
+      statusColor: "emerald",
+      pinUsed: "6767"
+    },
+    {
+      id: "act-2",
+      title: "VIP Tech Summit Usher",
+      type: "Application Accepted",
+      wage: "\u20B91,000",
+      date: "Starts Tomorrow, 9:00 AM",
+      status: "Scheduled",
+      statusColor: "cyan",
+      pinUsed: "6767"
+    },
+    {
+      id: "act-3",
+      title: "Flyer & Promo Distributor",
+      type: "Application Sent",
+      wage: "\u20B9100/hr",
+      date: "Today, 2:18 PM",
+      status: "Under Review",
+      statusColor: "amber",
+      pinUsed: "Pending"
+    },
+    {
+      id: "act-4",
+      title: "Weekend Expo Booth Lead",
+      type: "Completed Project",
+      wage: "\u20B910,000",
+      date: "Sep 8, 2026",
+      status: "Settled",
+      statusColor: "emerald",
+      pinUsed: "6767"
+    }
+  ],
+
+  notifications: [
+    {
+      id: "notif-1",
+      title: "Payment Received! 💰",
+      message: "\u20B9500 credited to your wallet for Akhila's Brew Lab shift.",
+      time: "25m ago",
+      type: "wallet",
+      unread: true
+    },
+    {
+      id: "notif-2",
+      title: "Shift Check-in PIN Active 🔑",
+      message: "Your attendance PIN for today's shifts is 6767. Provide this to the employer on arrival.",
+      time: "1h ago",
+      type: "security",
+      unread: true
+    },
+    {
+      id: "notif-3",
+      title: "Application Accepted! 🎉",
+      message: "Ryan's Media Con accepted your application for Tech Summit Usher (\u20B91,000).",
+      time: "3h ago",
+      type: "job",
+      unread: false
+    },
+    {
+      id: "notif-4",
+      title: "KYC Status: Verified ✅",
+      message: "Your age (22 >= 18) and government ID have been successfully verified.",
+      time: "1 day ago",
+      type: "kyc",
+      unread: false
+    }
+  ]
+};
+
+</script>
+  <script>
+// ==========================================================================
+// PART-TIME - Liquid Glass Interactive Application Engine
+// ==========================================================================
+
+const state = {
+  theme: localStorage.getItem('parttime_theme') || 'dark',
+  isExpanded: false,
+  soundEnabled: true,
+  activeTab: 'view-home',
+  selectedCategory: 'All',
+  searchQuery: '',
+  activeChatId: 'chat-arun',
+  mapRadius: 5,
+  jobs: [...INITIAL_DATA.jobs],
+  chats: JSON.parse(JSON.stringify(INITIAL_DATA.chats)),
+  wallet: { ...INITIAL_DATA.wallet },
+  recentActivities: [...INITIAL_DATA.recentActivities],
+  notifications: [...INITIAL_DATA.notifications],
+  user: { ...INITIAL_DATA.user },
+  selectedJobForApply: null
+};
+
+// Web Audio API Procedural Sound Engine
+class SoundEngine {
+  constructor() {
+    this.ctx = null;
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        this.ctx = new AudioContext();
+      }
+    }
+    if (this.ctx && this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  }
+
+  playTap() {
+    if (!state.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(200, this.ctx.currentTime + 0.04);
+      gain.gain.setValueAtTime(0.08, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.04);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.04);
+    } catch (e) {}
+  }
+
+  playSuccess() {
+    if (!state.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.setValueAtTime(659.25, now + 0.08);
+      osc.frequency.setValueAtTime(783.99, now + 0.16);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start();
+      osc.stop(now + 0.35);
+    } catch (e) {}
+  }
+
+  playCashout() {
+    if (!state.soundEnabled) return;
+    this.init();
+    if (!this.ctx) return;
+    try {
+      const notes = [587.33, 739.99, 880, 1174.66];
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, this.ctx.currentTime + idx * 0.06);
+        gain.gain.setValueAtTime(0.1, this.ctx.currentTime + idx * 0.06);
+        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + idx * 0.06 + 0.18);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(this.ctx.currentTime + idx * 0.06);
+        osc.stop(this.ctx.currentTime + idx * 0.06 + 0.18);
+      });
+    } catch (e) {}
+  }
+}
+
+const sounds = new SoundEngine();
+
+function showToast(msg, icon = "✨") {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = 'liquid-toast';
+  toast.innerHTML = `<span>${icon}</span> <span>${msg}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.remove();
+  }, 3000);
+}
+
+function applyTheme(themeName) {
+  state.theme = themeName;
+  document.documentElement.setAttribute('data-theme', themeName);
+  localStorage.setItem('parttime_theme', themeName);
+  
+  const icon = document.getElementById('theme-icon');
+  const text = document.getElementById('theme-text');
+  if (icon && text) {
+    if (themeName === 'light') {
+      icon.textContent = '☀️';
+      text.textContent = 'Light Crystal';
+    } else {
+      icon.textContent = '💎';
+      text.textContent = 'Black Crystal';
+    }
+  }
+}
+
+function toggleTheme() {
+  sounds.playTap();
+  const nextTheme = state.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(nextTheme);
+  showToast(`Switched to ${nextTheme === 'dark' ? 'Black Crystal Liquid Glass 💎' : 'Light Crystal Glass ☀️'}`);
+}
+
+function toggleFrameMode() {
+  sounds.playTap();
+  const frame = document.getElementById('device-frame');
+  const wrapper = document.getElementById('iphone-wrapper');
+  const text = document.getElementById('frame-mode-text');
+  state.isExpanded = !state.isExpanded;
+  
+  if (state.isExpanded) {
+    frame.classList.add('expanded');
+    if (wrapper) wrapper.classList.add('expanded');
+    text.textContent = 'iPhone 15 Pro Max';
+    showToast('Expanded to Desktop Dashboard View');
+  } else {
+    frame.classList.remove('expanded');
+    if (wrapper) wrapper.classList.remove('expanded');
+    text.textContent = 'Expand View';
+    showToast('Switched to iPhone 15 Pro Max Frame 📱');
+  }
+}
+
+function switchTab(targetViewId) {
+  sounds.playTap();
+  state.activeTab = targetViewId;
+  
+  document.querySelectorAll('.view-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  const targetPanel = document.getElementById(targetViewId);
+  if (targetPanel) {
+    targetPanel.classList.add('active');
+  }
+
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-view') === targetViewId) {
+      btn.classList.add('active');
+    }
+  });
+
+  if (targetViewId === 'view-map') {
+    renderMap();
+  } else if (targetViewId === 'view-chat') {
+    renderChats();
+    openChatThread(state.activeChatId);
+  } else if (targetViewId === 'view-wallet') {
+    renderWallet();
+  } else if (targetViewId === 'view-recent') {
+    renderRecent();
+  }
+}
+
+// HOME FEED: Render Job Cards
+function renderJobs() {
+  const grid = document.getElementById('home-jobs-grid');
+  const countText = document.getElementById('jobs-count-text');
+  if (!grid) return;
+
+  const filtered = state.jobs.filter(job => {
+    const matchesCategory = state.selectedCategory === 'All' || job.category === state.selectedCategory;
+    const q = state.searchQuery.toLowerCase().trim();
+    const matchesSearch = !q || 
+      job.title.toLowerCase().includes(q) || 
+      job.employer.toLowerCase().includes(q) ||
+      job.category.toLowerCase().includes(q) ||
+      job.location.toLowerCase().includes(q);
+    return matchesCategory && matchesSearch;
+  });
+
+  if (countText) {
+    countText.textContent = `Showing ${filtered.length} gigs nearby`;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div style="text-align: center; padding: 40px 20px; color: var(--text-muted);">
+        <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+        <div style="font-weight: 700; color: var(--text-primary);">No matching vacancies</div>
+        <div style="font-size: 12px; margin-top: 4px;">Try searching for "Cafe", "Flyer", or select "All Gigs"</div>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(job => {
+    const badgeColorClass = job.badgeColor || 'cyan';
+    return `
+      <div class="job-card" data-job-id="${job.id}">
+        <div class="card-top">
+          <div class="employer-info">
+            <img src="${job.employerAvatar}" class="emp-avatar" alt="${job.employer}">
+            <div class="emp-meta">
+              <span class="emp-name">${job.employer}</span>
+              <span class="emp-rating">★ ${job.employerRating} • ${job.category}</span>
+            </div>
+          </div>
+          <div class="wage-badge ${badgeColorClass}">
+            <div class="wage-amount">\u20B9${job.wage.toLocaleString()}</div>
+            <div class="wage-unit">${job.wageUnit}</div>
+          </div>
+        </div>
+
+        <div class="job-title">${job.title}</div>
+
+        <div class="job-tags-row">
+          ${job.tags.map(t => `<span class="job-tag">${t}</span>`).join('')}
+        </div>
+
+        <div class="job-meta-row">
+          <div class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>${job.duration}</span>
+          </div>
+          <div class="meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>${job.distanceKm} km • ${job.location}</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <button class="apply-btn btn-apply-job" data-id="${job.id}">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span>Apply Now (PIN 6767)</span>
+          </button>
+          <button class="chat-quick-btn btn-card-chat" data-id="${job.id}" title="Message Employer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  grid.querySelectorAll('.btn-apply-job').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const jobId = btn.getAttribute('data-id');
+      initiateApply(jobId);
+    });
+  });
+
+  grid.querySelectorAll('.btn-card-chat').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const jobId = btn.getAttribute('data-id');
+      const job = state.jobs.find(j => j.id === jobId);
+      switchTab('view-chat');
+      if (job && job.employer.includes('Arun')) openChatThread('chat-arun');
+      else if (job && job.employer.includes('Akhila')) openChatThread('chat-akhila');
+      else if (job && job.employer.includes('Ryan')) openChatThread('chat-ryan');
+      else if (job && job.employer.includes('Toby')) openChatThread('chat-toby');
+    });
+  });
+
+  grid.querySelectorAll('.job-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const jobId = card.getAttribute('data-job-id');
+      initiateApply(jobId);
+    });
+  });
+}
+
+// MAP VIEW: Interactive Live Radar & Pins
+function renderMap() {
+  const container = document.getElementById('map-pins-container');
+  if (!container) return;
+
+  container.innerHTML = state.jobs.map(job => {
+    const x = job.coords.x;
+    const y = job.coords.y;
+    const colorClass = job.badgeColor || 'cyan';
+    return `
+      <div class="map-pin" style="left: ${x}%; top: ${y}%;" data-job-id="${job.id}">
+        <div class="pin-bubble ${colorClass}">
+          <span>\u20B9${job.wage}</span>
+          <span style="font-size: 8px; opacity: 0.8;">${job.employer.split(' ')[0]}</span>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  container.querySelectorAll('.map-pin').forEach(pin => {
+    pin.addEventListener('click', () => {
+      sounds.playTap();
+      const jobId = pin.getAttribute('data-job-id');
+      const job = state.jobs.find(j => j.id === jobId);
+      if (!job) return;
+
+      const sheet = document.getElementById('map-job-sheet');
+      document.getElementById('sheet-emp-avatar').src = job.employerAvatar;
+      document.getElementById('sheet-emp-name').textContent = job.employer;
+      document.getElementById('sheet-emp-rating').textContent = `★ ${job.employerRating}`;
+      document.getElementById('sheet-wage-amount').textContent = `\u20B9${job.wage.toLocaleString()}`;
+      document.getElementById('sheet-wage-unit').textContent = job.wageUnit;
+      document.getElementById('sheet-job-title').textContent = job.title;
+      document.getElementById('sheet-job-loc').textContent = `${job.distanceKm} km away • ${job.location}`;
+
+      const applyBtn = document.getElementById('sheet-apply-btn');
+      applyBtn.onclick = () => initiateApply(job.id);
+
+      const chatBtn = document.getElementById('sheet-chat-btn');
+      chatBtn.onclick = () => {
+        switchTab('view-chat');
+        if (job.employer.includes('Arun')) openChatThread('chat-arun');
+        else if (job.employer.includes('Akhila')) openChatThread('chat-akhila');
+        else if (job.employer.includes('Ryan')) openChatThread('chat-ryan');
+        else if (job.employer.includes('Toby')) openChatThread('chat-toby');
+      };
+
+      sheet.style.display = 'block';
+    });
+  });
+}
+
+// CHATS VIEW: Contact List & Active Thread
+function renderChats() {
+  const listContainer = document.getElementById('chat-contacts-list');
+  if (!listContainer) return;
+
+  const q = (document.getElementById('search-chats-input')?.value || '').toLowerCase().trim();
+  const filtered = state.chats.filter(c => !q || c.contactName.toLowerCase().includes(q) || c.jobReference.toLowerCase().includes(q));
+
+  listContainer.innerHTML = filtered.map(chat => {
+    const lastMsg = chat.messages[chat.messages.length - 1] || { text: "No messages yet", time: "" };
+    const isActive = chat.id === state.activeChatId;
+    return `
+      <div class="chat-contact-item ${isActive ? 'active' : ''}" data-chat-id="${chat.id}">
+        <div class="contact-avatar-wrap">
+          <img src="${chat.avatar}" class="contact-avatar" alt="${chat.contactName}">
+          <div class="contact-online-dot ${chat.status}"></div>
+        </div>
+        <div class="contact-info">
+          <div class="contact-name-row">
+            <span class="contact-name">${chat.contactName}</span>
+            <span class="contact-time">${lastMsg.time || chat.lastMessageTime}</span>
+          </div>
+          <div class="contact-preview">${lastMsg.text}</div>
+          <div class="contact-job-pill">${chat.jobReference}</div>
+        </div>
+        ${chat.unreadCount > 0 ? `<span class="notif-badge" style="position: static; width: 18px; height: 18px;">${chat.unreadCount}</span>` : ''}
+      </div>
+    `;
+  }).join('');
+
+  listContainer.querySelectorAll('.chat-contact-item').forEach(item => {
+    item.addEventListener('click', () => {
+      sounds.playTap();
+      const chatId = item.getAttribute('data-chat-id');
+      openChatThread(chatId);
+    });
+  });
+}
+
+function openChatThread(chatId) {
+  state.activeChatId = chatId;
+  const chat = state.chats.find(c => c.id === chatId) || state.chats[0];
+  if (!chat) return;
+
+  chat.unreadCount = 0;
+  updateChatBadges();
+
+  document.getElementById('active-thread-avatar').src = chat.avatar;
+  document.getElementById('active-thread-name').textContent = chat.contactName;
+  document.getElementById('active-thread-status').textContent = `${chat.status.toUpperCase()} • ${chat.role}`;
+
+  const msgContainer = document.getElementById('chat-messages-container');
+  msgContainer.innerHTML = chat.messages.map(m => `
+    <div class="msg-bubble ${m.sender}">
+      <div>${m.text}</div>
+      <div class="msg-time">${m.time}</div>
+    </div>
+  `).join('');
+
+  msgContainer.scrollTop = msgContainer.scrollHeight;
+
+  document.querySelectorAll('.chat-contact-item').forEach(item => {
+    if (item.getAttribute('data-chat-id') === chatId) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
+function updateChatBadges() {
+  const totalUnread = state.chats.reduce((acc, c) => acc + (c.unreadCount || 0), 0);
+  const badge = document.getElementById('nav-chat-badge');
+  if (badge) {
+    badge.textContent = totalUnread;
+    badge.style.display = totalUnread > 0 ? 'flex' : 'none';
+  }
+}
+
+function sendChatMessage(text) {
+  if (!text || !text.trim()) return;
+  sounds.playTap();
+  
+  const chat = state.chats.find(c => c.id === state.activeChatId);
+  if (!chat) return;
+
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  const newMsg = {
+    id: 'm-' + Date.now(),
+    sender: 'me',
+    text: text.trim(),
+    time: timeStr
+  };
+  chat.messages.push(newMsg);
+  openChatThread(state.activeChatId);
+
+  setTimeout(() => {
+    sounds.playTap();
+    let replyText = "Received! Looking forward to your shift. Please have the OTP 6767 ready.";
+    if (text.includes('6767') || text.includes('PIN')) {
+      replyText = "PIN 6767 confirmed! Shift checked in successfully. Have a great shift!";
+    } else if (text.includes('Request Pay') || text.includes('completed')) {
+      replyText = "Great work! I've approved your payout of \u20B9500 to your PART-TIME wallet right now.";
+      addWalletCredit(500, `${chat.company} Shift Settlement`);
+    } else if (text.includes('Arrived')) {
+      replyText = "Great! Head to Counter 2 or the main desk, we're ready for you.";
+    }
+
+    chat.messages.push({
+      id: 'm-reply-' + Date.now(),
+      sender: 'them',
+      text: replyText,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    });
+    openChatThread(state.activeChatId);
+    showToast(`New reply from ${chat.contactName}`, "💬");
+  }, 1400);
+}
+
+// RECENT ACTIVITIES VIEW
+function renderRecent() {
+  const list = document.getElementById('recent-activities-list');
+  if (!list) return;
+
+  list.innerHTML = state.recentActivities.map(act => `
+    <div class="recent-card">
+      <div class="recent-main">
+        <span class="recent-title">${act.title}</span>
+        <span class="recent-type">${act.type} • Check-in PIN: ${act.pinUsed}</span>
+        <span class="recent-date">${act.date}</span>
+      </div>
+      <div class="recent-right">
+        <span class="recent-wage">${act.wage}</span>
+        <span class="recent-status-pill ${act.statusColor}">${act.status}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+// WALLET VIEW & PAYOUT ENGINE (Matching sketch: Balance ₹1000, UPI / GPay)
+function renderWallet() {
+  document.getElementById('wallet-balance-display').textContent = `\u20B9${state.wallet.balance.toLocaleString()}`;
+  document.getElementById('cashout-available-balance').textContent = `\u20B9${state.wallet.balance.toLocaleString()}`;
+  document.getElementById('wallet-user-name').textContent = state.user.name.toUpperCase();
+  document.getElementById('wallet-upi-tag').textContent = state.wallet.upiId;
+
+  const txList = document.getElementById('wallet-tx-list');
+  if (!txList) return;
+
+  txList.innerHTML = state.wallet.transactions.map(tx => `
+    <div class="tx-row">
+      <div class="tx-left">
+        <div class="tx-icon-wrap ${tx.type}">
+          ${tx.type === 'credit' ? '↓' : '↑'}
+        </div>
+        <div class="tx-info">
+          <span class="tx-title">${tx.title}</span>
+          <span class="tx-date">${tx.date} • ${tx.category}</span>
+        </div>
+      </div>
+      <div class="tx-amount ${tx.type}">
+        ${tx.type === 'credit' ? '+' : '-'}\u20B9${tx.amount.toLocaleString()}
+      </div>
+    </div>
+  `).join('');
+}
+
+function addWalletCredit(amount, title) {
+  state.wallet.balance += amount;
+  state.wallet.transactions.unshift({
+    id: 'tx-' + Date.now(),
+    title: title,
+    category: "Shift Settlement",
+    amount: amount,
+    type: "credit",
+    date: "Just now",
+    status: "Completed",
+    icon: "sparkles"
+  });
+  renderWallet();
+  sounds.playSuccess();
+}
+
+function handleCashoutSubmit() {
+  const amtInput = document.getElementById('cashout-amount');
+  const upiInput = document.getElementById('cashout-upi');
+  const amt = parseInt(amtInput.value, 10);
+  const upiId = upiInput.value.trim();
+
+  if (isNaN(amt) || amt <= 0) {
+    showToast("Please enter a valid cashout amount", "⚠️");
+    return;
+  }
+  if (amt > state.wallet.balance) {
+    showToast(`Insufficient balance. Maximum: \u20B9${state.wallet.balance}`, "⚠️");
+    return;
+  }
+  if (!upiId || !upiId.includes('@')) {
+    showToast("Please enter a valid UPI ID (e.g. name@okaxis)", "⚠️");
+    return;
+  }
+
+  state.wallet.balance -= amt;
+  state.wallet.transactions.unshift({
+    id: 'tx-' + Date.now(),
+    title: `UPI Payout to ${upiId}`,
+    category: "GPay / UPI Withdrawal",
+    amount: amt,
+    type: "debit",
+    date: "Just now",
+    status: "Completed",
+    icon: "arrow-up-right"
+  });
+
+  renderWallet();
+  sounds.playCashout();
+  closeAllModals();
+  showToast(`\u20B9${amt} successfully sent to ${upiId} via Google Pay!`, "🎉");
+}
+
+// JOB APPLICATION FLOW (One-Time PIN 6767 checkin)
+function initiateApply(jobId) {
+  sounds.playTap();
+  const job = state.jobs.find(j => j.id === jobId);
+  if (!job) return;
+
+  state.selectedJobForApply = job;
+  document.getElementById('apply-modal-title').textContent = `Apply: ${job.title}`;
+  document.getElementById('apply-modal-emp').textContent = `${job.employer} • \u20B9${job.wage} (${job.wageUnit})`;
+  document.getElementById('apply-modal-details').innerHTML = `
+    <div><strong>Location:</strong> ${job.location} (${job.distanceKm} km away)</div>
+    <div><strong>Shift Time:</strong> ${job.timeSlot}</div>
+    <div><strong>Duration:</strong> ${job.duration}</div>
+    <div style="margin-top: 6px;"><strong>Brief:</strong> ${job.description}</div>
+  `;
+
+  openModal('modal-apply-confirm');
+}
+
+function submitJobApplication() {
+  if (!state.selectedJobForApply) return;
+  const job = state.selectedJobForApply;
+
+  sounds.playSuccess();
+  closeAllModals();
+
+  state.recentActivities.unshift({
+    id: 'act-' + Date.now(),
+    title: job.title,
+    type: "Application Sent",
+    wage: `\u20B9${job.wage}`,
+    date: "Today, Just now",
+    status: "Confirmed",
+    statusColor: "cyan",
+    pinUsed: "6767"
+  });
+
+  state.notifications.unshift({
+    id: 'notif-' + Date.now(),
+    title: `Applied to ${job.employer} 🎉`,
+    message: `Application submitted for \u20B9${job.wage}. Your check-in PIN is 6767.`,
+    time: "Just now",
+    type: "job",
+    unread: true
+  });
+  updateNotifBadge();
+
+  showToast(`Application submitted! Check-in PIN is 6767`, "🚀");
+}
+
+// POST A JOB (Employer "HIRE" modal submission)
+function handleHireSubmit(e) {
+  e.preventDefault();
+  sounds.playSuccess();
+
+  const title = document.getElementById('hire-title').value.trim();
+  const category = document.getElementById('hire-category').value;
+  const wage = parseInt(document.getElementById('hire-wage').value, 10);
+  const duration = document.getElementById('hire-duration').value.trim();
+  const slots = parseInt(document.getElementById('hire-slots').value, 10) || 1;
+  const location = document.getElementById('hire-location').value.trim();
+  const desc = document.getElementById('hire-desc').value.trim();
+
+  const newJob = {
+    id: 'job-' + Date.now(),
+    title: title,
+    employer: `${state.user.name}'s Enterprise`,
+    employerAvatar: state.user.avatar,
+    employerRating: 5.0,
+    category: category,
+    wage: wage,
+    wageUnit: "per shift",
+    duration: duration,
+    timeSlot: "Today, Immediate Start",
+    distanceKm: 0.5,
+    location: location,
+    coords: { x: Math.floor(Math.random() * 60) + 20, y: Math.floor(Math.random() * 60) + 20 },
+    tags: ["Recently Posted", "Immediate Start", "Verified Hirer"],
+    description: desc || "Looking for reliable part-time talent to join our on-ground shift immediately.",
+    openSlots: slots,
+    checkInPin: "6767",
+    isUrgent: true,
+    badgeColor: "cyan"
+  };
+
+  state.jobs.unshift(newJob);
+  renderJobs();
+  renderMap();
+  closeAllModals();
+  showToast(`Vacancy "${title}" published live for \u20B9${wage}!`, "📢");
+  document.getElementById('hire-form').reset();
+}
+
+function renderNotifications() {
+  const container = document.getElementById('notifs-list-container');
+  if (!container) return;
+
+  container.innerHTML = state.notifications.map(n => `
+    <div style="background: var(--glass-card); border: 1px solid var(--glass-border); padding: 12px; border-radius: 12px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+        <span style="font-weight: 700; font-size: 13px;">${n.title}</span>
+        <span style="font-size: 10px; color: var(--text-muted);">${n.time}</span>
+      </div>
+      <div style="font-size: 12px; color: var(--text-secondary);">${n.message}</div>
+    </div>
+  `).join('');
+}
+
+function updateNotifBadge() {
+  const unread = state.notifications.filter(n => n.unread).length;
+  const badge = document.getElementById('header-notif-count');
+  if (badge) {
+    badge.textContent = unread;
+    badge.style.display = unread > 0 ? 'flex' : 'none';
+  }
+}
+
+function openModal(modalId) {
+  sounds.playTap();
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('active');
+  }
+}
+
+function closeAllModals() {
+  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+}
+
+// SETUP EVENT LISTENERS & INITIALIZATION
+function setupEventListeners() {
+  document.getElementById('btn-toggle-theme').addEventListener('click', toggleTheme);
+  document.getElementById('btn-toggle-frame').addEventListener('click', toggleFrameMode);
+  document.getElementById('btn-toggle-sound').addEventListener('click', () => {
+    state.soundEnabled = !state.soundEnabled;
+    const icon = document.getElementById('sound-icon');
+    icon.textContent = state.soundEnabled ? '🔊' : '🔇';
+    showToast(`Sound Effects: ${state.soundEnabled ? 'Enabled' : 'Muted'}`);
+  });
+
+  document.getElementById('btn-open-account').addEventListener('click', () => openModal('modal-account'));
+  document.getElementById('btn-save-account').addEventListener('click', () => {
+    const roleSelect = document.getElementById('account-role-select');
+    state.user.userType = roleSelect.value;
+    sounds.playSuccess();
+    closeAllModals();
+    showToast(`Profile saved as ${roleSelect.options[roleSelect.selectedIndex].text}!`, "✨");
+  });
+
+  document.getElementById('btn-open-hire').addEventListener('click', () => openModal('modal-hire'));
+  document.getElementById('btn-open-settings').addEventListener('click', () => openModal('modal-settings'));
+  document.getElementById('btn-open-notifs').addEventListener('click', () => {
+    renderNotifications();
+    openModal('modal-notifs');
+  });
+  document.getElementById('banner-kyc-btn').addEventListener('click', () => openModal('modal-account'));
+  document.getElementById('banner-otp').addEventListener('click', () => {
+    sounds.playTap();
+    navigator.clipboard?.writeText('6767');
+    showToast("Check-in PIN 6767 copied to clipboard!", "📋");
+  });
+
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const targetView = item.getAttribute('data-view');
+      switchTab(targetView);
+    });
+  });
+
+  document.querySelectorAll('.category-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      sounds.playTap();
+      document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      state.selectedCategory = chip.getAttribute('data-category');
+      renderJobs();
+    });
+  });
+
+  const searchInput = document.getElementById('search-jobs-input');
+  const clearSearchBtn = document.getElementById('btn-clear-search');
+  searchInput.addEventListener('input', (e) => {
+    state.searchQuery = e.target.value;
+    clearSearchBtn.style.display = state.searchQuery ? 'flex' : 'none';
+    renderJobs();
+  });
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    state.searchQuery = '';
+    clearSearchBtn.style.display = 'none';
+    renderJobs();
+  });
+
+  // Map controls
+  const radiusSelector = document.getElementById('map-radius-selector');
+  if (radiusSelector) {
+    const radiuses = [1, 5, 10, 25];
+    radiusSelector.addEventListener('click', () => {
+      sounds.playTap();
+      const nextIdx = (radiuses.indexOf(state.mapRadius) + 1) % radiuses.length;
+      state.mapRadius = radiuses[nextIdx];
+      document.getElementById('radius-text').textContent = `Radius: ${state.mapRadius} km`;
+      showToast(`Radar scanning within ${state.mapRadius} km radius`, "📡");
+    });
+  }
+
+  // Chat controls
+  const chatSearch = document.getElementById('search-chats-input');
+  if (chatSearch) {
+    chatSearch.addEventListener('input', () => renderChats());
+  }
+
+  const backBtn = document.getElementById('btn-back-to-contacts');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      sounds.playTap();
+      document.getElementById('chat-list-pane').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  const chatForm = document.getElementById('chat-input-form');
+  const chatInput = document.getElementById('chat-text-input');
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    sendChatMessage(chatInput.value);
+    chatInput.value = '';
+  });
+
+  document.querySelectorAll('.quick-reply-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const text = pill.getAttribute('data-quick');
+      sendChatMessage(text);
+    });
+  });
+
+  document.getElementById('btn-simulate-call').addEventListener('click', () => {
+    sounds.playTap();
+    showToast("Calling employer via encrypted line...", "📞");
+  });
+
+  // Wallet controls
+  document.getElementById('btn-open-cashout').addEventListener('click', () => openModal('modal-cashout'));
+  document.getElementById('btn-open-deposit').addEventListener('click', () => {
+    addWalletCredit(500, "Bank Deposit Transfer");
+    showToast("₹500 added to wallet from HDFC Bank!", "💳");
+  });
+  document.getElementById('btn-confirm-cashout').addEventListener('click', handleCashoutSubmit);
+
+  document.querySelectorAll('.btn-amt-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('cashout-amount').value = btn.getAttribute('data-amt');
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach(btn => {
+    btn.addEventListener('click', closeAllModals);
+  });
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeAllModals();
+    });
+  });
+
+  document.getElementById('btn-submit-job-apply').addEventListener('click', submitJobApplication);
+  document.getElementById('hire-form').addEventListener('submit', handleHireSubmit);
+
+  // Dynamic Island Interactive Live Activity Toggle
+  const island = document.getElementById('dynamic-island');
+  if (island) {
+    island.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sounds.playTap();
+      island.classList.toggle('expanded');
+    });
+  }
+
+  // iPhone 15 Pro Max Physical Hardware Buttons
+  const actionBtn = document.querySelector('.iphone-btn-action');
+  if (actionBtn) {
+    actionBtn.addEventListener('click', () => {
+      sounds.playSuccess();
+      navigator.clipboard?.writeText('6767');
+      showToast("Action Button: Check-in PIN 6767 copied! 🔑", "⚡");
+    });
+  }
+
+  const volUpBtn = document.querySelector('.iphone-btn-vol-up');
+  if (volUpBtn) {
+    volUpBtn.addEventListener('click', () => {
+      sounds.playTap();
+      showToast("Volume: 80% 🔊");
+    });
+  }
+
+  const volDownBtn = document.querySelector('.iphone-btn-vol-down');
+  if (volDownBtn) {
+    volDownBtn.addEventListener('click', () => {
+      sounds.playTap();
+      showToast("Volume: 60% 🔉");
+    });
+  }
+
+  const powerBtn = document.querySelector('.iphone-btn-power');
+  if (powerBtn) {
+    powerBtn.addEventListener('click', () => {
+      sounds.playTap();
+      showToast("Side Button: iPhone 15 Pro Max Locked / Unlocked 🔒");
+    });
+  }
+
+  document.getElementById('btn-settings-theme').addEventListener('click', toggleTheme);
+  document.getElementById('btn-settings-sound').addEventListener('click', () => {
+    state.soundEnabled = !state.soundEnabled;
+    showToast(`Sound Effects: ${state.soundEnabled ? 'Enabled' : 'Muted'}`);
+  });
+  document.getElementById('btn-reverify-kyc').addEventListener('click', () => {
+    closeAllModals();
+    openModal('modal-account');
+  });
+  document.getElementById('btn-signout').addEventListener('click', () => {
+    sounds.playTap();
+    showToast("Signed out. Switched to guest mode.");
+    closeAllModals();
+  });
+}
+
+// iOS Real-Time Clock
+function initClock() {
+  const clockEl = document.getElementById('ios-clock');
+  function update() {
+    const now = new Date();
+    let h = now.getHours();
+    let m = now.getMinutes();
+    h = h % 12 || 12;
+    m = m < 10 ? '0' + m : m;
+    if (clockEl) clockEl.textContent = `${h}:${m}`;
+  }
+  update();
+  setInterval(update, 10000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyTheme(state.theme);
+  setupEventListeners();
+  initClock();
+  renderJobs();
+  renderMap();
+  renderChats();
+  renderRecent();
+  renderWallet();
+  updateChatBadges();
+  updateNotifBadge();
+  showToast("Welcome to PART-TIME on iPhone 15 Pro Max!", "💎");
+});
+
+</script>
+</body>
+</html>

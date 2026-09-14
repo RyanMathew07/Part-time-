@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>PART-TIME | Liquid Glass Marketplace</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Fluid Liquid Ambient Mesh Background -->
+  <div class="liquid-ambient-container">
+    <div class="liquid-orb orb-1"></div>
+    <div class="liquid-orb orb-2"></div>
+    <div class="liquid-orb orb-3"></div>
+    <div class="liquid-orb orb-4"></div>
+  </div>
+
+  <!-- Floating Desktop Toolbar -->
+  <div class="floating-desktop-bar">
+    <button class="glass-pill-btn" id="btn-toggle-frame" title="Toggle between iPhone 15 Pro Max and expanded dashboard">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+      <span id="frame-mode-text">Expand View</span>
+    </button>
+    <button class="glass-pill-btn" id="btn-toggle-theme" title="Switch between Black Crystal and Light Crystal theme">
+      <span id="theme-icon">💎</span>
+      <span id="theme-text">Black Crystal</span>
+    </button>
+    <button class="glass-pill-btn" id="btn-toggle-sound" title="Toggle audio feedback">
+      <span id="sound-icon">🔊</span>
+      <span>Sound ON</span>
+    </button>
+  </div>
+
+  <!-- Main App Wrapper with iPhone 15 Pro Max Chassis -->
+  <div class="app-container">
+    <div class="iphone-wrapper" id="iphone-wrapper">
+      <!-- Hardware Physical Buttons (Titanium Finish) -->
+      <div class="iphone-btn-action" title="Action Button"></div>
+      <div class="iphone-btn-vol-up" title="Volume Up"></div>
+      <div class="iphone-btn-vol-down" title="Volume Down"></div>
+      <div class="iphone-btn-power" title="Side Power Button"></div>
+
+      <!-- iPhone 15 Pro Max Screen Frame -->
+      <div class="device-frame" id="device-frame">
+        
+        <!-- iOS 18 Status Bar with Interactive Dynamic Island -->
+        <div class="ios-status-bar">
+          <span class="ios-time" id="ios-clock">9:41</span>
+          
+          <!-- Dynamic Island (Interactive Live Activity) -->
+          <div class="dynamic-island" id="dynamic-island" title="Tap to inspect Live Activity">
+            <div class="island-compact-view">
+              <div class="island-camera-lens"></div>
+              <div class="island-mic-sensor"></div>
+            </div>
+            <div class="island-expanded-view">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="island-pulse-icon"></span>
+                <div style="display: flex; flex-direction: column;">
+                  <span style="font-size: 11px; font-weight: 700;">Arun's Cafe Shift</span>
+                  <span style="font-size: 9px; color: var(--accent-cyan);">Starts in 35m • PIN 6767</span>
+                </div>
+              </div>
+              <div class="island-wave-bars">
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+                <span class="island-bar"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- iOS Status Icons -->
+          <div class="ios-status-right">
+            <svg width="17" height="11" viewBox="0 0 17 11" fill="white">
+              <rect x="0" y="8" width="3" height="3" rx="0.5"/>
+              <rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/>
+              <rect x="9" y="3" width="3" height="8" rx="0.5"/>
+              <rect x="13.5" y="0" width="3" height="11" rx="0.5"/>
+            </svg>
+            <span style="font-size: 10.5px; font-weight: 700; color: #fff; margin: 0 1px;">5G</span>
+            <div class="ios-battery-pill">
+              <div class="ios-battery-fill"></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Top Header (From Sketch: Account, Notifications, Title, Settings & Hire) -->
+      <header class="app-header">
+        <div class="header-left">
+          <div class="avatar-btn" id="btn-open-account" title="Account Settings & Personalisation">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Alex Chen" id="header-avatar">
+          </div>
+          <button class="icon-btn" id="btn-open-notifs" title="Notifications">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notif-badge" id="header-notif-count">2</span>
+          </button>
+        </div>
+
+        <div class="app-brand">
+          <div class="app-title-pill">
+            <span class="live-dot"></span>
+            PART-TIME
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="hire-btn" id="btn-open-hire" title="Post a Vacancy (Employer)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <span>HIRE</span>
+          </button>
+          <button class="icon-btn" id="btn-open-settings" title="Settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- KYC Verification & One-Time PIN Status Banner (From Sketch) -->
+      <div class="status-glass-banner">
+        <div class="kyc-badge" id="banner-kyc-btn" title="View KYC Age Verification Status">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Age &ge; 18 Verified (KYC)</span>
+        </div>
+        <div class="otp-tag">
+          <span>PIN:</span>
+          <span class="otp-code" id="banner-otp" title="Click to copy check-in PIN">6767</span>
+        </div>
+      </div>
+
+      <!-- Scrollable Main Viewport -->
+      <main class="app-viewport">
+
+        <!-- ==========================================
+             VIEW 1: HOME (Matching Sketch Feed)
+             ========================================== -->
+        <section class="view-panel active" id="view-home">
+          <!-- Search Section (Sketch: "Job Employee", "Search by Categories") -->
+          <div class="search-section">
+            <div class="search-box">
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" class="search-input" id="search-jobs-input" placeholder="Search Job, Role or Employee..." autocomplete="off">
+              <button class="clear-search-btn" id="btn-clear-search">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Categories Scroller -->
+          <div class="categories-scroller" id="categories-container">
+            <button class="category-chip active" data-category="All">✨ All Gigs</button>
+            <button class="category-chip" data-category="Cafe">☕ Café & Food</button>
+            <button class="category-chip" data-category="Promotion">📢 Promo & Sales</button>
+            <button class="category-chip" data-category="Events">🎪 Events & Ushers</button>
+            <button class="category-chip" data-category="Logistics">📦 Logistics & Expo</button>
+            <button class="category-chip" data-category="Retail">🛍️ Retail Store</button>
+            <button class="category-chip" data-category="Delivery">🚀 Express Delivery</button>
+          </div>
+
+          <!-- Section Heading -->
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              <span>Job Offers & Vacancies</span>
+            </div>
+            <span class="section-subtitle" id="jobs-count-text">Showing 6 jobs</span>
+          </div>
+
+          <!-- Jobs Grid (Cards matching ₹100, ₹500, ₹1000, ₹10,000 from sketch) -->
+          <div class="jobs-grid" id="home-jobs-grid">
+            <!-- Dynamically populated from data.js -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: MAP (Matching Sketch: Google Maps, Live Update, Pins)
+             ========================================== -->
+        <section class="view-panel" id="view-map">
+          <div class="map-container" id="map-radar-container">
+            <div class="map-radar-bg"></div>
+
+            <!-- Map Header Control Bar -->
+            <div class="map-header-bar">
+              <div class="map-status-pill">
+                <span class="live-dot"></span>
+                <span>Live Radar</span>
+              </div>
+              <div class="map-status-pill" id="map-radius-selector" style="cursor: pointer;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+                <span id="radius-text">Radius: 5 km</span>
+              </div>
+            </div>
+
+            <!-- Animated "Here" User Beacon Marker from Sketch -->
+            <div class="user-beacon" id="user-beacon">
+              <div class="beacon-wave"></div>
+              <div class="beacon-core"></div>
+              <div class="beacon-label">📍 You are Here</div>
+            </div>
+
+            <!-- Job Markers Container (Populated via JS) -->
+            <div id="map-pins-container"></div>
+
+            <!-- Slide-up Job Preview Sheet -->
+            <div class="map-job-sheet" id="map-job-sheet" style="display: none;">
+              <div class="card-top">
+                <div class="employer-info">
+                  <img src="" class="emp-avatar" id="sheet-emp-avatar" alt="Emp">
+                  <div class="emp-meta">
+                    <span class="emp-name" id="sheet-emp-name"></span>
+                    <span class="emp-rating" id="sheet-emp-rating">★ 4.9</span>
+                  </div>
+                </div>
+                <div class="wage-badge" id="sheet-wage-badge">
+                  <span class="wage-amount" id="sheet-wage-amount">₹500</span>
+                  <span class="wage-unit" id="sheet-wage-unit">shift</span>
+                </div>
+              </div>
+              <div class="job-title" id="sheet-job-title" style="margin: 8px 0 4px 0; font-size: 14px;"></div>
+              <div class="section-subtitle" id="sheet-job-loc" style="margin-bottom: 10px;"></div>
+              <div class="card-actions">
+                <button class="apply-btn" id="sheet-apply-btn">Quick Apply (PIN 6767)</button>
+                <button class="chat-quick-btn" id="sheet-chat-btn" title="Chat with Employer">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: CHATS (Matching Sketch: Arun, Akhila, Ryan, Toby)
+             ========================================== -->
+        <section class="view-panel" id="view-chat">
+          <div class="chat-tab-container">
+            <!-- Contact List Pane -->
+            <div class="chat-list-pane" id="chat-list-pane">
+              <div class="search-box" style="margin-bottom: 6px;">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="text" class="search-input" id="search-chats-input" placeholder="Search conversations..." style="height: 38px; font-size: 12px;">
+              </div>
+              <div id="chat-contacts-list">
+                <!-- Arun, Akhila, Ryan, Toby rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Active Thread Pane -->
+            <div class="chat-thread-pane" id="chat-thread-pane">
+              <div class="chat-thread-header">
+                <div class="thread-user-details">
+                  <button class="icon-btn" id="btn-back-to-contacts" style="width: 28px; height: 28px;" title="Back">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+                  </button>
+                  <img src="" class="contact-avatar" id="active-thread-avatar" alt="Avatar" style="width: 32px; height: 32px;">
+                  <div>
+                    <div class="contact-name" id="active-thread-name">Arun</div>
+                    <div class="section-subtitle" id="active-thread-status" style="font-size: 10px; color: var(--accent-emerald);">Online • Cafe Shift Manager</div>
+                  </div>
+                </div>
+                <div class="thread-actions">
+                  <button class="icon-btn" id="btn-simulate-call" style="width: 32px; height: 32px;" title="Call Employer">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Message Stream -->
+              <div class="chat-messages-body" id="chat-messages-container">
+                <!-- Messages appended by JS -->
+              </div>
+
+              <!-- Quick Chips from Sketch (OTP 6767, Payment, Location) -->
+              <div class="chat-quick-actions">
+                <button class="quick-reply-pill" data-quick="Here is my attendance PIN: 6767">🔑 Share PIN 6767</button>
+                <button class="quick-reply-pill" data-quick="I have arrived at the location!">📍 I've Arrived</button>
+                <button class="quick-reply-pill" data-quick="Shift completed. Requesting payment approval.">💰 Request Pay</button>
+              </div>
+
+              <!-- Input Bar -->
+              <form class="chat-input-bar" id="chat-input-form">
+                <input type="text" class="chat-input" id="chat-text-input" placeholder="Type message..." autocomplete="off">
+                <button type="submit" class="chat-send-btn" id="btn-send-message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: RECENT (Matching Sketch: Recent activity, history)
+             ========================================== -->
+        <section class="view-panel" id="view-recent">
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Recent Shift History</span>
+            </div>
+            <span class="section-subtitle">Verified on blockchain</span>
+          </div>
+
+          <div class="recent-list" id="recent-activities-list">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: WALLET (Matching Sketch: "wallet", "Balance ₹1000", "UPI / Gpay", "Redeem")
+             ========================================== -->
+        <section class="view-panel" id="view-wallet">
+          <div class="wallet-card-container">
+            <!-- Holographic Liquid Glass Card -->
+            <div class="liquid-wallet-card">
+              <div class="card-top-row">
+                <div class="card-chip"></div>
+                <div class="card-upi-logo">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <span>UPI PAY</span>
+                </div>
+              </div>
+
+              <div class="card-balance-section">
+                <span class="balance-label">Available Earnings</span>
+                <span class="balance-val" id="wallet-balance-display">₹1,000</span>
+              </div>
+
+              <div class="card-bottom-row">
+                <div>
+                  <div class="card-holder" id="wallet-user-name">ALEX CHEN</div>
+                  <div class="card-id-tag">KYC VERIFIED &ge; 18</div>
+                </div>
+                <div class="card-id-tag" id="wallet-upi-tag">alexchen@okaxis</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons Grid (UPI / GPay Cashout) -->
+          <div class="wallet-actions-grid">
+            <button class="wallet-action-btn primary" id="btn-open-cashout">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg>
+              <span>UPI / GPay Cashout</span>
+            </button>
+            <button class="wallet-action-btn" id="btn-open-deposit">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+              <span>Add Money</span>
+            </button>
+          </div>
+
+          <!-- Transaction Ledger -->
+          <div class="section-header">
+            <div class="section-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>Transaction History</span>
+            </div>
+            <span class="section-subtitle">Auto Settled</span>
+          </div>
+
+          <div class="transactions-list" id="wallet-tx-list">
+            <!-- Rendered by JS -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ==========================================
+           BOTTOM NAVBAR (5 Tabs: Home, Map, Chat, Recent, Wallet)
+           ========================================== -->
+      <nav class="liquid-navbar">
+        <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button class="nav-item" id="nav-map" data-view="view-map" title="Live Radar Map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <span class="nav-label">Map</span>
+        </button>
+
+        <button class="nav-item" id="nav-chat" data-view="view-chat" title="Messages & Offers">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <span class="nav-label">Chat</span>
+          <span class="nav-badge" id="nav-chat-badge">3</span>
+        </button>
+
+        <button class="nav-item" id="nav-recent" data-view="view-recent" title="Recent Shifts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="nav-label">Recent</span>
+        </button>
+
+        <button class="nav-item" id="nav-wallet" data-view="view-wallet" title="Wallet & Payouts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <span class="nav-label">Wallet</span>
+        </button>
+      </nav>
+
+        <!-- iOS Home Indicator -->
+        <div class="ios-home-indicator"></div>
+      </div><!-- end device-frame -->
+    </div><!-- end iphone-wrapper -->
+  </div><!-- end app-container -->
+
+  <!-- ==========================================
+       MODALS & DRAWERS
+       ========================================== -->
+
+  <!-- Modal 1: Account Personalisation & KYC (Age >= 18) -->
+  <div class="modal-overlay" id="modal-account">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Account Personalisation</div>
+      <div class="modal-subtitle">Manage worker profile, KYC status, and preferences</div>
+
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" style="width: 58px; height: 58px; border-radius: 50%; border: 2px solid var(--accent-cyan);">
+        <div>
+          <div style="font-weight: 800; font-size: 15px;">Alex Chen</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">alex.chen@parttime.io</div>
+          <div style="margin-top: 4px; display: inline-flex; align-items: center; gap: 4px; background: rgba(16,185,129,0.15); border: 1px solid var(--accent-emerald); color: var(--accent-emerald); padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700;">
+            &#10003; KYC Verified (Age 22 &ge; 18)
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Active Role</label>
+        <select class="form-select" id="account-role-select">
+          <option value="employee">Job Seeker / Part-Time Employee</option>
+          <option value="employer">Employer / Business Hirer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Government ID (KYC)</label>
+        <input type="text" class="form-input" value="Aadhaar Card: •••• •••• 8839" readonly>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Hourly Pay Rate Expectation (₹)</label>
+        <div style="display: flex; gap: 10px;">
+          <input type="number" class="form-input" value="250" placeholder="Min ₹">
+          <input type="number" class="form-input" value="1200" placeholder="Max ₹">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Check-in Handshake PIN</label>
+        <div style="display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); padding: 10px 14px; border-radius: 12px;">
+          <span style="font-size: 12px; color: var(--text-secondary);">Your Universal Shift PIN</span>
+          <span class="otp-code" style="font-size: 15px;">6767</span>
+        </div>
+      </div>
+
+      <button class="modal-submit-btn" id="btn-save-account">Save Personalisation</button>
+    </div>
+  </div>
+
+  <!-- Modal 2: Post a Job (+ HIRE Button from sketch) -->
+  <div class="modal-overlay" id="modal-hire">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Post New Part-Time Vacancy</div>
+      <div class="modal-subtitle">Hire pre-verified workers in your local area</div>
+
+      <form id="hire-form">
+        <div class="form-group">
+          <label class="form-label">Job Title / Role</label>
+          <input type="text" class="form-input" id="hire-title" placeholder="e.g. Weekend Cafe Barista" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="hire-category">
+              <option value="Cafe">☕ Café & Food</option>
+              <option value="Promotion">📢 Promotion</option>
+              <option value="Events">🎪 Events</option>
+              <option value="Logistics">📦 Logistics</option>
+              <option value="Retail">🛍️ Retail</option>
+              <option value="Delivery">🚀 Delivery</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Wage (₹)</label>
+            <input type="number" class="form-input" id="hire-wage" placeholder="e.g. 500" required>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label class="form-label">Duration</label>
+            <input type="text" class="form-input" id="hire-duration" placeholder="e.g. 4 Hours" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Slots Available</label>
+            <input type="number" class="form-input" id="hire-slots" value="2" min="1">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Location / Landmark</label>
+          <input type="text" class="form-input" id="hire-location" placeholder="e.g. Indiranagar 100ft Road" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description & Shift Notes</label>
+          <textarea class="form-textarea" id="hire-desc" placeholder="Details about requirements, attire, and duties..."></textarea>
+        </div>
+
+        <button type="submit" class="modal-submit-btn">Publish Vacancy</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Notifications Center -->
+  <div class="modal-overlay" id="modal-notifs">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Notifications</div>
+      <div class="modal-subtitle">Real-time alerts, payment updates, and shift calls</div>
+      <div id="notifs-list-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+    </div>
+  </div>
+
+  <!-- Modal 4: UPI / GPay Cashout -->
+  <div class="modal-overlay" id="modal-cashout">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">UPI Instant Cashout</div>
+      <div class="modal-subtitle">Transfer funds directly to your bank account via UPI</div>
+
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid var(--accent-emerald); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
+        <span style="font-size: 11px; color: var(--text-secondary);">Available to Withdraw:</span>
+        <div style="font-size: 24px; font-weight: 800; color: var(--accent-emerald);" id="cashout-available-balance">₹1,000</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Amount to Cashout (₹)</label>
+        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="200">₹200</button>
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="500">₹500</button>
+          <button type="button" class="quick-reply-pill btn-amt-preset" data-amt="1000">₹1,000</button>
+        </div>
+        <input type="number" class="form-input" id="cashout-amount" value="500" min="50">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">UPI ID / VPA</label>
+        <input type="text" class="form-input" id="cashout-upi" value="alexchen@okaxis">
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+        <span style="font-size: 11px; color: var(--text-muted);">Transfer Mode: Google Pay (GPay) / PhonePe / BHIM</span>
+      </div>
+
+      <button class="modal-submit-btn" id="btn-confirm-cashout">Instant Transfer via UPI</button>
+    </div>
+  </div>
+
+  <!-- Modal 5: Quick Apply & Job Confirmation -->
+  <div class="modal-overlay" id="modal-apply-confirm">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title" id="apply-modal-title">Apply for Shift</div>
+      <div class="modal-subtitle" id="apply-modal-emp">Arun's Cafe & Roasters</div>
+
+      <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-cyan); padding: 14px; border-radius: 12px; margin-bottom: 14px;">
+        <div style="font-size: 12px; font-weight: 700; color: var(--accent-cyan);">Instant Check-in Handshake</div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">
+          When your application is confirmed, present your Universal Check-in PIN to the shift manager:
+        </div>
+        <div style="margin-top: 8px; font-size: 22px; font-weight: 800; color: var(--text-primary); letter-spacing: 2px;">
+          PIN: <span style="color: var(--accent-cyan);">6767</span>
+        </div>
+      </div>
+
+      <div id="apply-modal-details" style="font-size: 12px; line-height: 1.5; color: var(--text-secondary); margin-bottom: 16px;"></div>
+
+      <button class="modal-submit-btn" id="btn-submit-job-apply">Confirm & Send Application</button>
+    </div>
+  </div>
+
+  <!-- Modal 6: Settings Menu -->
+  <div class="modal-overlay" id="modal-settings">
+    <div class="glass-modal">
+      <button class="modal-close-btn" data-close-modal>✕</button>
+      <div class="modal-title">Settings</div>
+      <div class="modal-subtitle">Liquid Glass Theme & Application Preferences</div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Appearance Theme</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Switch between Black Crystal & Crystal Light</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-settings-theme" style="padding: 4px 12px; font-size: 11px;">Toggle Theme</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Sound Effects & Haptics</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Web Audio tactile feedback on actions</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-settings-sound" style="padding: 4px 12px; font-size: 11px;">Toggle Sound</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--glass-border);">
+          <div>
+            <div style="font-weight: 700; font-size: 13px;">Age & KYC Status</div>
+            <div style="font-size: 11px; color: var(--accent-emerald);">Age &ge; 18 Verified &#10003;</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-reverify-kyc" style="padding: 4px 12px; font-size: 11px;">View KYC</button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+          <div>
+            <div style="font-weight: 700; font-size: 13px; color: var(--accent-rose);">Sign Out</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Switch account or role</div>
+          </div>
+          <button class="glass-pill-btn" id="btn-signout" style="padding: 4px 12px; font-size: 11px; color: var(--accent-rose);">Sign Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
