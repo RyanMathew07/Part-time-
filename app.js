@@ -157,6 +157,19 @@ function toggleFrameMode() {
     text.textContent = 'Expand View';
     showToast('Switched to iPhone 15 Pro Max Frame 📱');
   }
+  setTimeout(updateNavIndicator, 200);
+}
+
+function updateNavIndicator() {
+  const pill = document.getElementById('nav-indicator-pill');
+  const activeBtn = document.querySelector('.liquid-navbar .nav-item.active');
+  const navbar = document.getElementById('liquid-navbar');
+  if (!pill || !activeBtn || !navbar) return;
+
+  const leftOffset = activeBtn.offsetLeft;
+  pill.style.transform = `translateX(${leftOffset}px)`;
+  pill.style.width = `${activeBtn.offsetWidth}px`;
+  pill.style.height = `${activeBtn.offsetHeight}px`;
 }
 
 function switchTab(targetViewId) {
@@ -177,6 +190,8 @@ function switchTab(targetViewId) {
       btn.classList.add('active');
     }
   });
+
+  updateNavIndicator();
 
   if (targetViewId === 'view-map') {
     renderMap();
@@ -925,5 +940,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWallet();
   updateChatBadges();
   updateNotifBadge();
+  setTimeout(updateNavIndicator, 60);
+  window.addEventListener('resize', updateNavIndicator);
   showToast("Welcome to PART-TIME on iPhone 15 Pro Max!", "💎");
 });

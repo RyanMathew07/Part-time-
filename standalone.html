@@ -1835,25 +1835,59 @@ body {
 }
 
 /* ==========================================================================
-   BOTTOM LIQUID GLASS NAVIGATION BAR (Home, Map, Chat, Recent, Wallet)
+   BOTTOM LIQUID GLASS NAVIGATION BAR: Floating Pill (Apple iOS Style)
    ========================================================================== */
 .liquid-navbar {
   position: absolute;
-  bottom: 12px;
-  left: 14px;
-  right: 14px;
-  height: 68px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight), 0 15px 35px rgba(0, 0, 0, 0.4);
-  border-radius: var(--radius-full);
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 44px);
+  max-width: 356px;
+  height: 64px;
+  border-radius: 36px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 8px;
+  justify-content: space-between;
+  padding: 0 6px;
   z-index: 40;
+  contain: layout style paint;
+}
+
+/* 1px gradient sheen line near top inner edge */
+.liquid-navbar::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+/* Sliding active capsule behind active item */
+.nav-indicator-pill {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  width: 58px;
+  height: 52px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f4f5 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .nav-item {
@@ -1861,64 +1895,115 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  color: var(--text-muted);
+  gap: 3px;
+  color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  background: none;
+  background: transparent;
   border: none;
-  width: 54px;
+  width: 58px;
   height: 52px;
-  border-radius: var(--radius-full);
-  transition: var(--transition-smooth);
+  border-radius: 26px;
+  transition: color 0.2s ease, transform 0.15s ease;
   position: relative;
+  z-index: 2;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-item svg {
   width: 20px;
   height: 20px;
-  transition: transform 0.2s ease;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  transition: stroke 0.2s ease, transform 0.18s ease;
 }
 
 .nav-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: -0.1px;
+  line-height: 1;
+  color: inherit;
   transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-  color: var(--text-primary);
-}
-
-.nav-item:hover svg {
-  transform: translateY(-2px);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .nav-item.active {
-  color: var(--accent-cyan);
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-  border: 1px solid var(--accent-cyan);
-  box-shadow: 0 0 16px var(--accent-cyan-glow);
+  color: #09090b;
 }
 
 .nav-item.active svg {
-  transform: scale(1.15);
+  stroke: #09090b;
+  transform: scale(1.05);
 }
 
-.nav-badge {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  width: 14px;
-  height: 14px;
-  background: var(--accent-rose);
-  color: white;
-  border-radius: 50%;
-  font-size: 9px;
+.nav-item.active .nav-label {
+  color: #09090b;
   font-weight: 700;
+}
+
+/* Optional red dot badge at bottom of nav icon (e.g. on Chat) */
+.nav-icon-wrap {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.nav-dot-badge {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4.5px;
+  height: 4.5px;
+  background: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(239, 68, 68, 0.85);
+  pointer-events: none;
+}
+
+.nav-item.active .nav-dot-badge {
+  background: #dc2626;
+  box-shadow: 0 0 4px rgba(220, 38, 38, 0.7);
+}
+
+/* Light theme adjustments for clean monochrome contrast */
+[data-theme="light"] .liquid-navbar {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .liquid-navbar::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+}
+
+[data-theme="light"] .nav-item {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .nav-indicator-pill {
+  background: linear-gradient(180deg, #18181b 0%, #09090b 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="light"] .nav-item.active {
+  color: #ffffff;
+}
+
+[data-theme="light"] .nav-item.active svg {
+  stroke: #ffffff;
+}
+
+[data-theme="light"] .nav-item.active .nav-label {
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -2531,30 +2616,51 @@ body.perf-turbo .job-card::before {
       <!-- ==========================================
            BOTTOM NAVBAR (5 Tabs: Home, Map, Chat, Recent, Wallet)
            ========================================== -->
-      <nav class="liquid-navbar">
+      <!-- ==========================================
+           BOTTOM NAVBAR: Floating Liquid Glass Pill (Apple iOS Style)
+           ========================================== -->
+      <nav class="liquid-navbar" id="liquid-navbar">
+        <div class="nav-indicator-pill" id="nav-indicator-pill"></div>
+
         <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+          </svg>
           <span class="nav-label">Home</span>
         </button>
 
         <button class="nav-item" id="nav-map" data-view="view-map" title="Live Radar Map">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/>
+            <path d="M9 3v15"/>
+            <path d="M15 6v15"/>
+          </svg>
           <span class="nav-label">Map</span>
         </button>
 
         <button class="nav-item" id="nav-chat" data-view="view-chat" title="Messages & Offers">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <div class="nav-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+            </svg>
+            <span class="nav-dot-badge"></span>
+          </div>
           <span class="nav-label">Chat</span>
-          <span class="nav-badge" id="nav-chat-badge">3</span>
         </button>
 
         <button class="nav-item" id="nav-recent" data-view="view-recent" title="Recent Shifts">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <polyline points="12 7 12 12 15 15"/>
+          </svg>
           <span class="nav-label">Recent</span>
         </button>
 
         <button class="nav-item" id="nav-wallet" data-view="view-wallet" title="Wallet & Payouts">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
           <span class="nav-label">Wallet</span>
         </button>
       </nav>
@@ -3347,6 +3453,19 @@ function toggleFrameMode() {
     text.textContent = 'Expand View';
     showToast('Switched to iPhone 15 Pro Max Frame 📱');
   }
+  setTimeout(updateNavIndicator, 200);
+}
+
+function updateNavIndicator() {
+  const pill = document.getElementById('nav-indicator-pill');
+  const activeBtn = document.querySelector('.liquid-navbar .nav-item.active');
+  const navbar = document.getElementById('liquid-navbar');
+  if (!pill || !activeBtn || !navbar) return;
+
+  const leftOffset = activeBtn.offsetLeft;
+  pill.style.transform = `translateX(${leftOffset}px)`;
+  pill.style.width = `${activeBtn.offsetWidth}px`;
+  pill.style.height = `${activeBtn.offsetHeight}px`;
 }
 
 function switchTab(targetViewId) {
@@ -3367,6 +3486,8 @@ function switchTab(targetViewId) {
       btn.classList.add('active');
     }
   });
+
+  updateNavIndicator();
 
   if (targetViewId === 'view-map') {
     renderMap();
@@ -4115,6 +4236,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderWallet();
   updateChatBadges();
   updateNotifBadge();
+  setTimeout(updateNavIndicator, 60);
+  window.addEventListener('resize', updateNavIndicator);
   showToast("Welcome to PART-TIME on iPhone 15 Pro Max!", "💎");
 });
 
