@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -1839,6 +1839,7 @@ body {
    ========================================================================== */
 .liquid-navbar {
   position: absolute;
+<<<<<<< HEAD
   bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
@@ -1846,10 +1847,17 @@ body {
   max-width: 356px;
   height: 64px;
   border-radius: 36px;
+=======
+  bottom: 18px;
+  left: 14px;
+  right: 14px;
+  height: 62px;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.14);
+<<<<<<< HEAD
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.45),
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
@@ -1863,16 +1871,35 @@ body {
 }
 
 /* 1px gradient sheen line near top inner edge */
+=======
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 4px;
+  z-index: 40;
+  user-select: none;
+}
+
+/* 1px subtle top sheen line for glass curvature highlight */
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 .liquid-navbar::before {
   content: "";
   position: absolute;
   top: 1px;
+<<<<<<< HEAD
   left: 24px;
   right: 24px;
+=======
+  left: 20px;
+  right: 20px;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
   border-radius: 9999px;
   pointer-events: none;
+<<<<<<< HEAD
 }
 
 /* Sliding active capsule behind active item */
@@ -1888,6 +1915,8 @@ body {
   transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
   pointer-events: none;
   z-index: 1;
+=======
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item {
@@ -1895,7 +1924,11 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+<<<<<<< HEAD
   gap: 3px;
+=======
+  gap: 2px;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   background: transparent;
@@ -1903,35 +1936,73 @@ body {
   width: 58px;
   height: 52px;
   border-radius: 26px;
+<<<<<<< HEAD
   transition: color 0.2s ease, transform 0.15s ease;
   position: relative;
   z-index: 2;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+=======
+  transition: transform 0.15s ease-out, color 0.15s ease-out, background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  outline: none;
+}
+
+.nav-item:active {
+  transform: scale(0.92);
+}
+
+.nav-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item svg {
   width: 20px;
   height: 20px;
+<<<<<<< HEAD
   stroke: currentColor;
   stroke-width: 1.8;
   transition: stroke 0.2s ease, transform 0.18s ease;
+=======
+  stroke-width: 1.8;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-label {
   font-size: 10px;
+<<<<<<< HEAD
   font-weight: 600;
   letter-spacing: -0.1px;
   line-height: 1;
   color: inherit;
   transition: color 0.2s ease;
+=======
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  line-height: 1;
+  color: inherit;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
+/* Active State: Solid white-to-light-gray capsule behind just the active icon */
 .nav-item.active {
+<<<<<<< HEAD
   color: #09090b;
 }
 
@@ -1951,6 +2022,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+=======
+  background: linear-gradient(180deg, #ffffff 0%, #f0f0f2 100%);
+  color: #0a0a0c;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(0, 0, 0, 0.12);
+}
+
+.nav-item.active .nav-label {
+  color: #0a0a0c;
+  font-weight: 600;
+}
+
+.nav-item.active svg {
+  stroke: #0a0a0c;
+  transform: scale(1.04);
+}
+
+/* Small Red Dot Notification Badge at the bottom of the icon */
+.nav-dot-badge {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  background: #ef4444;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.9);
+  pointer-events: none;
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-dot-badge {
@@ -2616,6 +2716,7 @@ body.perf-turbo .job-card::before {
       <!-- ==========================================
            BOTTOM NAVBAR (5 Tabs: Home, Map, Chat, Recent, Wallet)
            ========================================== -->
+<<<<<<< HEAD
       <!-- ==========================================
            BOTTOM NAVBAR: Floating Liquid Glass Pill (Apple iOS Style)
            ========================================== -->
@@ -2626,41 +2727,71 @@ body.perf-turbo .job-card::before {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
           </svg>
+=======
+      <nav class="liquid-navbar" role="navigation" aria-label="Main Navigation">
+        <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
+          <div class="nav-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Home</span>
         </button>
 
         <button class="nav-item" id="nav-map" data-view="view-map" title="Live Radar Map">
+<<<<<<< HEAD
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/>
             <path d="M9 3v15"/>
             <path d="M15 6v15"/>
           </svg>
+=======
+          <div class="nav-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+          </div>
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Map</span>
         </button>
 
         <button class="nav-item" id="nav-chat" data-view="view-chat" title="Messages & Offers">
           <div class="nav-icon-wrap">
+<<<<<<< HEAD
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
             </svg>
             <span class="nav-dot-badge"></span>
+=======
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            <span class="nav-dot-badge" id="nav-chat-dot"></span>
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           </div>
           <span class="nav-label">Chat</span>
         </button>
 
         <button class="nav-item" id="nav-recent" data-view="view-recent" title="Recent Shifts">
+<<<<<<< HEAD
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
             <polyline points="12 7 12 12 15 15"/>
           </svg>
+=======
+          <div class="nav-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Recent</span>
         </button>
 
         <button class="nav-item" id="nav-wallet" data-view="view-wallet" title="Wallet & Payouts">
+<<<<<<< HEAD
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
             <line x1="2" y1="10" x2="22" y2="10"/>
           </svg>
+=======
+          <div class="nav-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          </div>
+>>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Wallet</span>
         </button>
       </nav>

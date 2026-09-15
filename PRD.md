@@ -137,6 +137,21 @@ graph TD
   - Required Skills and Location.
 - Instant publication into both the Home job feed and Radar Map view without page reload.
 
+### 4.9 Floating Liquid Glass Bottom Navigation Dock
+- **Architecture**: Centered floating capsule tab bar (`max-w-[364px]`, `border-radius: 34px`) elevated above screen content with visible margins on both sides.
+- **Glass Material & Inset Highlights**:
+  - Translucent neutral backing: `rgba(255, 255, 255, 0.06)`
+  - Frosted diffusion: `backdrop-filter: blur(24px) saturate(180%)` with `-webkit-backdrop-filter` fallback.
+  - Precision hairline border: `1px solid rgba(255, 255, 255, 0.14)`
+  - Lift and physical thickness: Outer shadow `0 8px 32px rgba(0,0,0,0.45)`, top inset reflection `inset 0 1px 1px rgba(255,255,255,0.25)`, and bottom shadow `inset 0 -1px 1px rgba(0,0,0,0.3)`.
+  - Specular Curvature Line: 1px top sheen line (`transparent → rgba(255,255,255,0.45) → transparent`).
+- **5-Tab Navigation Elements**:
+  - Tabs: **Home**, **Map**, **Chat**, **Recent**, **Wallet** with ~58×52px touch targets and `26px` border radius.
+  - Minimalist 1.8px-stroke line icons with tactile spring compression on press (`active:scale-90`).
+  - Inactive tabs rendered in dim gray (`50%` opacity).
+  - Active state sliding capsule in solid white/light-gray with soft radial glow (`box-shadow: 0 0 16px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.25)`) and contrasting dark iconography.
+  - Chat notification dot badge (`5px` diameter red indicator `#ef4444` at the base of the Chat icon).
+
 ---
 
 ## 5. UI/UX Design System & Theme Specification
