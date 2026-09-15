@@ -119,15 +119,15 @@ export function BottomDock() {
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 pointer-events-none flex justify-center pb-[env(safe-area-inset-bottom)] px-3 mb-4 transition-all duration-200 /* bg-[#090b12]/95 backdrop-blur-xl */">
+    <div className="fixed bottom-4 sm:bottom-6 left-0 right-0 z-40 pointer-events-none flex justify-center px-4 transition-all duration-200">
       {/* Floating Apple Liquid Glass Pill Container */}
       <nav
         role="navigation"
         aria-label="Main Navigation"
-        className="pointer-events-auto relative flex items-center justify-between p-1 rounded-[34px] bg-white/[0.06] backdrop-blur-[24px] saturate-[180%] border border-white/[0.14] shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.25),inset_0_-1px_1px_rgba(0,0,0,0.3)] max-w-[364px] w-full select-none"
+        className="pointer-events-auto relative flex items-center justify-between p-1 rounded-[34px] bg-white/85 dark:bg-[#141414]/80 backdrop-blur-2xl border border-black/10 dark:border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.45),inset_0_1px_1px_rgba(255,255,255,0.25),inset_0_-1px_1px_rgba(0,0,0,0.3)] max-w-[364px] w-full select-none"
       >
         {/* Subtle 1px gradient sheen line near top inner edge */}
-        <div className="absolute top-[1px] inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-white/45 to-transparent pointer-events-none rounded-full" />
+        <div className="absolute top-[1px] inset-x-6 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none rounded-full" />
 
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
@@ -140,20 +140,22 @@ export function BottomDock() {
               aria-label={tab.label}
               className={`relative min-w-[56px] w-[58px] min-h-[44px] h-12 py-1 flex flex-col items-center justify-center gap-0.5 rounded-[26px] border-0 bg-transparent hover:bg-transparent transition-transform duration-150 ease-out active:scale-90 select-none cursor-pointer ${
                 isActive
-                  ? 'text-black font-semibold'
-                  : 'text-white/50 hover:text-white/80 font-normal'
+                  ? 'text-white dark:text-black font-semibold'
+                  : 'text-black/60 hover:text-black dark:text-white/60 dark:hover:text-white font-normal'
               }`}
             >
               {/* Active sliding capsule indicator */}
               {isActive && (
-                <div className="absolute inset-0 rounded-[26px] bg-gradient-to-b from-white to-[#f0f0f2] shadow-[0_0_16px_rgba(255,255,255,0.35),0_2px_8px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.95),inset_0_-1px_1px_rgba(0,0,0,0.12)] transition-all duration-200" />
+                <div className="absolute inset-0 rounded-[26px] bg-black dark:bg-white shadow-[0_2px_12px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.3)] transition-all duration-200" />
               )}
 
               {/* Icon & Optional Red Dot Badge */}
               <div className="relative z-10 flex items-center justify-center">
                 <div
                   className={`transition-all duration-200 ${
-                    isActive ? 'text-black scale-105 stroke-[2]' : 'text-white/50'
+                    isActive
+                      ? 'text-white dark:text-black scale-105 stroke-[2]'
+                      : 'text-black/60 dark:text-white/60'
                   }`}
                 >
                   {tab.icon}
@@ -166,7 +168,9 @@ export function BottomDock() {
               {/* Label */}
               <span
                 className={`relative z-10 text-[10px] tracking-tight leading-none mt-0.5 ${
-                  isActive ? 'text-black font-semibold' : 'text-white/50 font-normal'
+                  isActive
+                    ? 'text-white dark:text-black font-semibold'
+                    : 'text-black/60 dark:text-white/60 font-normal'
                 }`}
               >
                 {tab.label}

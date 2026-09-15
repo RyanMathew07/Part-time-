@@ -29,7 +29,7 @@ export function MobileLayout() {
     useMarketplace();
 
   return (
-    <div className="w-full min-h-[100dvh] bg-white dark:bg-[#000000] text-black dark:text-white flex flex-col font-sans relative pb-24 overflow-x-hidden border-white/[0.08] /* bg-black */ transition-colors duration-200">
+    <div className="w-full min-h-[100dvh] bg-white dark:bg-[#000000] text-black dark:text-white flex flex-col font-sans relative pb-36 overflow-x-hidden border-white/[0.08] /* bg-black */ transition-colors duration-200">
       {/* Mobile Top Header */}
       <Header />
 
@@ -37,20 +37,20 @@ export function MobileLayout() {
       <main className="flex-1 p-4 flex flex-col gap-4">
         {activeTab === 'home' && (
           <>
-            {/* Universal OTP 6767 Attendance Banner */}
-            <OtpBanner />
-
-            {/* Active Shift Tracker */}
-            <ActiveShiftTracker />
-
-            {/* Search & Filters */}
+            {/* 1. Search & Filters on top */}
             <Card className="flex flex-col gap-2.5 p-3.5 bg-white dark:bg-[#121212] border border-[#efefef] dark:border-[#282828] rounded-2xl transition-colors duration-200">
               <SearchBar />
               <CategoryPills />
               <WageTierFilter />
             </Card>
 
-            {/* Opportunities Feed */}
+            {/* 2. Universal OTP 6767 Attendance Banner */}
+            <OtpBanner />
+
+            {/* 3. Active Shift Tracker */}
+            <ActiveShiftTracker />
+
+            {/* 4. Opportunities Feed */}
             <ShiftFeed />
           </>
         )}

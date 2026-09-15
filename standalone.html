@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -14,36 +14,34 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Black Crystal Liquid Glass (Default) */
+  /* Color Palette - Deep Obsidian Dark & Electric Lime (Matches Provided Image) */
   --bg-primary: #000000;
-  --bg-gradient: radial-gradient(circle at 50% -10%, #0d0f1a 0%, #040407 50%, #000000 100%);
-  --glass-bg: rgba(9, 10, 15, 0.74);
-  --glass-bg-hover: rgba(16, 18, 26, 0.88);
-  --glass-card: rgba(7, 8, 12, 0.70);
-  --glass-border: rgba(255, 255, 255, 0.16);
-  --glass-border-hover: rgba(255, 255, 255, 0.36);
-  --glass-inner-highlight: inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 2px 0 rgba(0, 0, 0, 0.8);
-  --glass-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+  --bg-gradient: radial-gradient(circle at 50% -10%, #111114 0%, #050507 60%, #000000 100%);
+  --glass-bg: rgba(22, 22, 26, 0.78);
+  --glass-bg-hover: rgba(30, 30, 36, 0.90);
+  --glass-card: rgba(20, 20, 24, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-border-hover: rgba(255, 255, 255, 0.22);
+  --glass-inner-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
+  --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
   --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
   
-  /* Brand Accents - Vibrant Crystal Radiance */
-  --accent-cyan: #06b6d4;
-  --accent-cyan-glow: rgba(6, 182, 212, 0.45);
-  --accent-violet: #8b5cf6;
-  --accent-violet-glow: rgba(139, 92, 246, 0.45);
-  --accent-emerald: #10b981;
-  --accent-emerald-glow: rgba(16, 185, 129, 0.45);
+  /* Brand Accents - Electric Lime & Pure White (NO BLUE) */
+  --accent-lime: #ccff00;
+  --accent-lime-bg: rgba(204, 255, 0, 0.12);
+  --accent-lime-border: rgba(204, 255, 0, 0.35);
+  --accent-emerald: #22c55e;
+  --accent-emerald-glow: rgba(34, 197, 94, 0.35);
   --accent-amber: #f59e0b;
-  --accent-amber-glow: rgba(245, 158, 11, 0.45);
-  --accent-rose: #f43f5e;
+  --accent-rose: #ef4444;
   
-  /* Fluid Background Crystal Orbs */
-  --orb-1: rgba(6, 182, 212, 0.28);
-  --orb-2: rgba(139, 92, 246, 0.25);
-  --orb-3: rgba(59, 130, 246, 0.22);
-  --orb-4: rgba(236, 72, 153, 0.18);
+  /* Subtle Smoky Liquid Mesh Orbs */
+  --orb-1: rgba(255, 255, 255, 0.035);
+  --orb-2: rgba(204, 255, 0, 0.04);
+  --orb-3: rgba(255, 255, 255, 0.025);
+  --orb-4: rgba(255, 255, 255, 0.02);
   
   /* UI Metrics */
   --radius-sm: 10px;
@@ -52,29 +50,33 @@
   --radius-xl: 32px;
   --radius-full: 9999px;
   
-  --backdrop-blur: blur(32px) saturate(210%);
-  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --backdrop-blur: blur(24px) saturate(180%);
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.15s ease;
 }
 
 [data-theme="light"] {
-  --bg-primary: #f1f5f9;
-  --bg-gradient: radial-gradient(circle at 10% 20%, #e0e7ff 0%, #f1f5f9 60%, #e2e8f0 100%);
-  --glass-bg: rgba(255, 255, 255, 0.65);
-  --glass-bg-hover: rgba(255, 255, 255, 0.82);
-  --glass-card: rgba(255, 255, 255, 0.68);
-  --glass-border: rgba(255, 255, 255, 0.85);
-  --glass-border-hover: rgba(99, 102, 241, 0.4);
-  --glass-inner-highlight: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95);
-  --glass-shadow: 0 15px 35px rgba(31, 38, 135, 0.08);
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --bg-primary: #f2f3f7;
+  --bg-gradient: radial-gradient(circle at 50% -10%, #ffffff 0%, #f2f3f7 70%, #e5e7eb 100%);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-hover: rgba(255, 255, 255, 0.90);
+  --glass-card: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-hover: rgba(0, 0, 0, 0.18);
+  --glass-inner-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --text-primary: #09090b;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
   
-  --orb-1: rgba(56, 189, 248, 0.32);
-  --orb-2: rgba(167, 139, 250, 0.32);
-  --orb-3: rgba(251, 146, 60, 0.25);
-  --orb-4: rgba(52, 211, 153, 0.25);
+  --accent-lime: #15803d;
+  --accent-lime-bg: rgba(21, 128, 61, 0.10);
+  --accent-lime-border: rgba(21, 128, 61, 0.25);
+  
+  --orb-1: rgba(0, 0, 0, 0.02);
+  --orb-2: rgba(34, 197, 94, 0.03);
+  --orb-3: rgba(0, 0, 0, 0.015);
+  --orb-4: rgba(0, 0, 0, 0.01);
 }
 
 *, *::before, *::after {
@@ -411,19 +413,19 @@ body {
 .island-camera-lens {
   width: 11px;
   height: 11px;
-  background: radial-gradient(circle at 35% 35%, #1a2238 0%, #080b12 80%);
-  border: 1px solid #1f293d;
+  background: radial-gradient(circle at 35% 35%, #18181b 0%, #09090b 80%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
-  box-shadow: inset 0 0 2px #0284c7;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .island-mic-sensor {
   width: 7px;
   height: 7px;
-  background: #06b6d4;
+  background: #27272a;
   opacity: 0.85;
   border-radius: 50%;
-  box-shadow: 0 0 8px #06b6d4;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
 }
 
 .island-expanded-view {
@@ -499,209 +501,93 @@ body {
 }
 
 /* ==========================================================================
-   App Header & Navigation Components
+   App Header & Top Components (Exact Match to Image)
    ========================================================================== */
 .app-header {
-  padding: 56px 18px 12px 18px;
+  padding: 50px 18px 12px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--glass-border);
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   position: relative;
   z-index: 20;
 }
 
 .device-frame.expanded .app-header {
-  padding-top: 18px;
+  padding-top: 16px;
 }
 
-.header-left, .header-right {
+.header-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.avatar-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: 2px solid var(--accent-cyan);
-  box-shadow: 0 0 12px var(--accent-cyan-glow);
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  background: var(--glass-card);
-  transition: var(--transition-smooth);
-}
-
-.avatar-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.avatar-btn:hover {
-  transform: scale(1.08);
-}
-
-.icon-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  transition: var(--transition-smooth);
-}
-
-.icon-btn:hover {
-  background: var(--glass-bg-hover);
-  border-color: var(--glass-border-hover);
-  transform: translateY(-2px);
-}
-
-.icon-btn:active {
-  transform: scale(0.94);
-}
-
-.notif-badge {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 16px;
-  height: 16px;
-  background: var(--accent-rose);
-  color: white;
-  border-radius: 50%;
-  font-size: 10px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--bg-primary);
-  animation: pulseBadge 2s infinite;
-}
-
-@keyframes pulseBadge {
-  0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6); }
-  70% { box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
-}
-
-.app-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.app-title-pill {
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.live-dot {
-  width: 7px;
-  height: 7px;
-  background: var(--accent-emerald);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-emerald);
-  animation: pulseLive 1.5s infinite;
-}
-
-@keyframes pulseLive {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
-}
-
-.hire-btn {
-  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
-  color: #ffffff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  box-shadow: 0 4px 15px var(--accent-cyan-glow);
-  transition: var(--transition-smooth);
-}
-
-.hire-btn:hover {
-  box-shadow: 0 6px 20px var(--accent-violet-glow);
-  transform: translateY(-2px);
-}
-
-/* Subheader Banner (KYC & OTP 6767 checkin from sketch) */
-.status-glass-banner {
-  margin: 10px 16px 0 16px;
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-}
-
-.kyc-badge {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--accent-emerald);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.otp-tag {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--text-secondary);
-}
-
-.otp-code {
-  font-family: monospace;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--accent-cyan);
-  background: rgba(6, 182, 212, 0.12);
-  padding: 2px 7px;
+.brand-badge-p {
+  width: 24px;
+  height: 24px;
   border-radius: 6px;
-  border: 1px dashed var(--accent-cyan);
-  letter-spacing: 1px;
+  background: #bef264;
+  color: #000000;
+  font-weight: 900;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(190, 242, 100, 0.4);
   cursor: pointer;
-  transition: var(--transition-fast);
 }
 
-.otp-code:hover {
-  background: rgba(6, 182, 212, 0.25);
+.brand-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-job-pill {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-pin-pill {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: monospace;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.header-pin-pill:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .app-viewport {
@@ -718,7 +604,7 @@ body {
 }
 
 .app-viewport::-webkit-scrollbar-thumb {
-  background: var(--glass-border);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
 
@@ -736,9 +622,209 @@ body {
   transform: translateY(0);
 }
 
-/* Search Bar (Matching Sketch: "Job Employee", "Search by Categories") */
-.search-section {
+/* ==========================================================================
+   CARD 1: Universal Attendance PIN Card
+   ========================================================================== */
+.active-pin-card {
+  background: rgba(22, 22, 26, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.pin-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pin-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pin-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pin-status-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pulse-lime-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseLive 1.5s infinite;
+}
+
+.pin-status-title {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.pin-active-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: #22c55e;
+  letter-spacing: 0.6px;
+}
+
+.pin-desc-text {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.3;
+  max-width: 190px;
+}
+
+.pin-white-copy-pill {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  font-family: monospace;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.pin-white-copy-pill:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================================================
+   CARD 2: Active Checked-In Shift Card
+   ========================================================================== */
+.checked-in-shift-card {
+  background: rgba(22, 22, 26, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 16px;
   margin-bottom: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.shift-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shift-role-title {
+  font-size: 12px;
+  font-weight: 900;
+  color: #ccff00;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.shift-employer-meta {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-top: 3px;
+}
+
+.shift-status-block {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.shift-onsite-badge {
+  font-size: 10.5px;
+  color: #9ca3af;
+}
+
+.shift-rate-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.shift-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 12px 0;
+}
+
+.shift-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shift-timing-info {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+.shift-time-val {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.shift-verified-badge {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.btn-complete-shift-white {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-complete-shift-white:hover {
+  background: #e4e4e7;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Search & Filter Chips (Exact Match to Image)
+   ========================================================================== */
+.search-section {
+  margin-bottom: 12px;
 }
 
 .search-box {
@@ -747,59 +833,40 @@ body {
   align-items: center;
 }
 
-.search-icon {
-  position: absolute;
-  left: 14px;
-  color: var(--text-muted);
-  pointer-events: none;
-}
-
 .search-input {
   width: 100%;
-  height: 46px;
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight);
-  border-radius: var(--radius-xl);
-  padding: 0 42px 0 44px;
-  color: var(--text-primary);
-  font-size: 14px;
-  font-weight: 500;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0 16px 0 40px;
+  font-size: 12px;
+  color: #ffffff;
   outline: none;
-  transition: var(--transition-smooth);
+  transition: all 0.2s ease;
 }
 
 .search-input:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 0 3px var(--accent-cyan-glow), var(--glass-inner-highlight);
-  background: var(--glass-bg-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .search-input::placeholder {
-  color: var(--text-muted);
+  color: #6b7280;
 }
 
-.clear-search-btn {
+.search-icon {
   position: absolute;
-  right: 12px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
+  left: 14px;
+  color: #6b7280;
+  pointer-events: none;
 }
 
-/* Categories Horizontal Scroller */
 .categories-scroller {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 10px 2px 6px 2px;
-  margin-bottom: 12px;
+  padding-bottom: 6px;
   scrollbar-width: none;
 }
 
@@ -809,57 +876,84 @@ body {
 
 .category-chip {
   flex-shrink: 0;
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight);
-  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
   padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
+  color: #d1d5db;
+  white-space: nowrap;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: var(--transition-smooth);
+  transition: all 0.2s ease;
 }
 
 .category-chip:hover {
-  color: var(--text-primary);
-  border-color: var(--glass-border-hover);
-  background: var(--glass-bg-hover);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .category-chip.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
-  border-color: var(--accent-cyan);
-  color: var(--text-primary);
-  box-shadow: 0 0 15px var(--accent-cyan-glow);
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px 0 10px 0;
-}
-
-.section-title {
-  font-size: 14px;
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
   font-weight: 700;
-  color: var(--text-primary);
+}
+
+.tier-chips-row {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.tier-chips-row::-webkit-scrollbar {
+  display: none;
+}
+
+.tier-chip {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #9ca3af;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tier-chip:hover {
+  color: #ffffff;
+}
+
+.tier-chip.active {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.subheading-stream {
+  font-size: 11px;
+  color: #6b7280;
   display: flex;
   align-items: center;
   gap: 6px;
+  margin: 4px 0 10px 0;
 }
 
-.section-subtitle {
-  font-size: 11px;
-  color: var(--text-muted);
+.subheading-dot {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1;
 }
 
+/* ==========================================================================
+   Job Cards Feed (Exact Match to Image)
+   ========================================================================== */
 .jobs-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -871,216 +965,350 @@ body {
   gap: 16px;
 }
 
-.job-card {
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight), var(--glass-shadow);
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  position: relative;
+.job-card-dark {
+  background: rgba(22, 22, 26, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   overflow: hidden;
-  transition: var(--transition-smooth);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
 }
 
-.job-card::before {
-  content: "";
+.job-card-dark:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.job-card-hero {
+  height: 105px;
+  background: linear-gradient(180deg, #22222a 0%, #151518 100%);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.rating-badge-pill {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-  transition: 0.6s;
-  pointer-events: none;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.job-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--glass-border-hover);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35), var(--glass-inner-highlight);
+.job-card-content {
+  padding: 14px 16px;
 }
 
-.job-card:hover::before {
-  left: 100%;
-}
-
-.card-top {
+.job-card-main-row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 10px;
 }
 
-.employer-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.emp-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  object-fit: cover;
-  border: 1px solid var(--glass-border);
-}
-
-.emp-meta {
-  display: flex;
-  flex-direction: column;
-}
-
-.emp-name {
-  font-size: 13px;
+.job-card-employer-title {
+  font-size: 14px;
   font-weight: 700;
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  color: #ffffff;
 }
 
-.emp-rating {
-  font-size: 11px;
-  color: var(--accent-amber);
-  display: flex;
-  align-items: center;
-  gap: 3px;
+.job-card-sub {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-top: 2px;
 }
 
-/* Big Wage Badge from Sketch (₹100, ₹500, ₹1000, ₹10,000) */
-.wage-badge {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
-  border: 1px solid var(--accent-cyan);
-  box-shadow: 0 0 15px var(--accent-cyan-glow);
-  padding: 6px 12px;
-  border-radius: var(--radius-md);
+.job-card-wage-block {
   text-align: right;
 }
 
-.wage-badge.emerald {
-  border-color: var(--accent-emerald);
-  box-shadow: 0 0 15px var(--accent-emerald-glow);
-}
-
-.wage-badge.purple {
-  border-color: var(--accent-violet);
-  box-shadow: 0 0 15px var(--accent-violet-glow);
-}
-
-.wage-badge.amber {
-  border-color: var(--accent-amber);
-  box-shadow: 0 0 15px var(--accent-amber-glow);
-}
-
-.wage-amount {
-  font-size: 18px;
+.job-card-wage-val {
+  font-size: 16px;
   font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--text-primary);
-  line-height: 1;
+  color: #ffffff;
+  line-height: 1.1;
+  display: block;
 }
 
-.wage-unit {
+.job-card-wage-period {
   font-size: 10px;
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: #9ca3af;
 }
 
-.job-title {
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-primary);
-}
-
-.job-tags-row {
+.job-card-tags-row {
   display: flex;
-  flex-wrap: wrap;
   gap: 6px;
+  margin: 10px 0 8px 0;
 }
 
-.job-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--glass-border);
-  padding: 3px 8px;
-  border-radius: 6px;
+.job-tag-lime {
+  background: rgba(204, 255, 0, 0.1);
+  color: #ccff00;
+  border: 1px solid rgba(204, 255, 0, 0.3);
+  border-radius: 9999px;
+  padding: 2px 9px;
   font-size: 10px;
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
-.job-meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 10px;
-}
-
-.meta-item {
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.card-actions {
+.job-tag-urgent {
+  background: rgba(239, 68, 68, 0.1);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 9999px;
+  padding: 2px 9px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.job-card-location-row {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.job-card-actions {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.apply-btn {
+.btn-card-apply {
   flex: 1;
-  background: linear-gradient(135deg, var(--accent-cyan) 0%, #2563eb 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   border: none;
-  padding: 9px 14px;
-  border-radius: var(--radius-md);
+  border-radius: 9999px;
+  padding: 10px 16px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  box-shadow: 0 4px 15px var(--accent-cyan-glow);
-  transition: var(--transition-smooth);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.apply-btn:hover {
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+.btn-card-apply:hover {
+  background: #e4e4e7;
   transform: translateY(-1px);
 }
 
-.apply-btn:active {
-  transform: scale(0.97);
-}
-
-.chat-quick-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: var(--glass-card);
-  border: 1px solid var(--glass-border);
-  color: var(--text-primary);
+.btn-card-chat-dark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.2s ease;
 }
 
-.chat-quick-btn:hover {
-  background: var(--glass-bg-hover);
-  border-color: var(--accent-cyan);
+.btn-card-chat-dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Light Theme Overrides for Obsidian Components */
+[data-theme="light"] .app-header {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .header-job-pill {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #374151;
+}
+
+[data-theme="light"] .header-pin-pill {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #09090b;
+}
+
+[data-theme="light"] .active-pin-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .pin-icon-circle {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .pin-status-title {
+  color: #4b5563;
+}
+
+[data-theme="light"] .pin-desc-text {
+  color: #6b7280;
+}
+
+[data-theme="light"] .pin-white-copy-pill {
+  background: #09090b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .pin-white-copy-pill:hover {
+  background: #27272a;
+}
+
+[data-theme="light"] .checked-in-shift-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .shift-role-title {
+  color: #15803d;
+}
+
+[data-theme="light"] .shift-employer-meta {
+  color: #4b5563;
+}
+
+[data-theme="light"] .shift-onsite-badge {
+  color: #6b7280;
+}
+
+[data-theme="light"] .shift-rate-text {
+  color: #09090b;
+}
+
+[data-theme="light"] .shift-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .shift-timing-info {
+  color: #374151;
+}
+
+[data-theme="light"] .shift-verified-badge {
+  color: #6b7280;
+}
+
+[data-theme="light"] .btn-complete-shift-white {
+  background: #09090b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .btn-complete-shift-white:hover {
+  background: #27272a;
+}
+
+[data-theme="light"] .search-box {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .search-input {
+  color: #09090b;
+}
+
+[data-theme="light"] .search-input::placeholder {
+  color: #9ca3af;
+}
+
+[data-theme="light"] .category-chip {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #4b5563;
+}
+
+[data-theme="light"] .category-chip.active {
+  background: #09090b;
+  border-color: #09090b;
+  color: #ffffff;
+}
+
+[data-theme="light"] .tier-chip {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #4b5563;
+}
+
+[data-theme="light"] .tier-chip.active {
+  background: #09090b;
+  border-color: #09090b;
+  color: #ffffff;
+}
+
+[data-theme="light"] .subheading-stream {
+  color: #6b7280;
+}
+
+[data-theme="light"] .job-card-dark {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .job-card-dark:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .job-card-employer-title {
+  color: #09090b;
+}
+
+[data-theme="light"] .job-card-sub {
+  color: #4b5563;
+}
+
+[data-theme="light"] .job-card-wage-val {
+  color: #09090b;
+}
+
+[data-theme="light"] .job-card-wage-period {
+  color: #6b7280;
+}
+
+[data-theme="light"] .job-tag-lime {
+  background: rgba(21, 128, 61, 0.1);
+  color: #15803d;
+  border-color: rgba(21, 128, 61, 0.25);
+}
+
+[data-theme="light"] .job-card-location-row {
+  color: #6b7280;
+}
+
+[data-theme="light"] .btn-card-apply {
+  background: #09090b;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .btn-card-apply:hover {
+  background: #27272a;
+}
+
+[data-theme="light"] .btn-card-chat-dark {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #09090b;
+}
+
+[data-theme="light"] .btn-card-chat-dark:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* ==========================================================================
@@ -1107,7 +1335,7 @@ body {
   top: 0;
   left: 0;
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.08) 0%, transparent 65%),
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 100% 100%, 40px 40px, 40px 40px;
@@ -1115,7 +1343,7 @@ body {
 
 [data-theme="light"] .map-radar-bg {
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.18) 0%, transparent 65%),
+    radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.12) 0%, transparent 65%),
     linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
 }
@@ -1133,19 +1361,25 @@ body {
 }
 
 .map-status-pill {
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-inner-highlight);
-  padding: 6px 12px;
+  background: rgba(22, 22, 26, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-primary);
+  color: #ffffff;
+}
+
+[data-theme="light"] .map-status-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #09090b;
 }
 
 .map-pin {
@@ -1162,35 +1396,46 @@ body {
 }
 
 .pin-bubble {
-  background: var(--glass-card);
-  backdrop-filter: var(--backdrop-blur);
-  -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 2px solid var(--accent-cyan);
-  box-shadow: 0 4px 20px var(--accent-cyan-glow);
-  padding: 4px 8px;
+  background: rgba(22, 22, 26, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  padding: 4px 9px;
   border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #ffffff;
   white-space: nowrap;
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
-.pin-bubble.emerald {
-  border-color: var(--accent-emerald);
-  box-shadow: 0 4px 20px var(--accent-emerald-glow);
+.pin-bubble.lime {
+  border-color: #ccff00;
+  box-shadow: 0 4px 16px rgba(204, 255, 0, 0.3);
 }
 
-.pin-bubble.purple {
-  border-color: var(--accent-violet);
-  box-shadow: 0 4px 20px var(--accent-violet-glow);
+.pin-bubble.emerald {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 4px 16px var(--accent-emerald-glow);
+}
+
+.pin-bubble.white {
+  border-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
 }
 
 .pin-bubble.amber {
   border-color: var(--accent-amber);
-  box-shadow: 0 4px 20px var(--accent-amber-glow);
+  box-shadow: 0 4px 16px var(--accent-amber-glow);
+}
+
+[data-theme="light"] .pin-bubble {
+  background: #ffffff;
+  color: #09090b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .user-beacon {
@@ -1205,10 +1450,10 @@ body {
 .beacon-core {
   width: 18px;
   height: 18px;
-  background: #38bdf8;
-  border: 3px solid #ffffff;
+  background: #ccff00;
+  border: 3px solid #000000;
   border-radius: 50%;
-  box-shadow: 0 0 16px #38bdf8;
+  box-shadow: 0 0 16px rgba(204, 255, 0, 0.8);
   position: relative;
   z-index: 2;
 }
@@ -1220,7 +1465,7 @@ body {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(204, 255, 0, 0.22);
   transform: translate(-50%, -50%);
   animation: radarWave 2.2s infinite ease-out;
 }
@@ -1304,8 +1549,8 @@ body {
 }
 
 .chat-contact-item.active {
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(139, 92, 246, 0.18) 100%);
-  border-color: var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .contact-avatar-wrap {
@@ -1372,8 +1617,8 @@ body {
 
 .contact-job-pill {
   font-size: 9px;
-  font-weight: 600;
-  color: var(--accent-cyan);
+  font-weight: 700;
+  color: #bef264;
   margin-top: 3px;
 }
 
@@ -1446,10 +1691,16 @@ body {
 
 .msg-bubble.me {
   align-self: flex-end;
-  background: linear-gradient(135deg, #0284c7 0%, #6366f1 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
+  font-weight: 600;
   border-bottom-right-radius: 4px;
-  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .msg-bubble.me {
+  background: #09090b;
+  color: #ffffff;
 }
 
 .msg-time {
@@ -1483,7 +1734,7 @@ body {
 .quick-reply-pill:hover {
   background: var(--glass-bg-hover);
   color: var(--text-primary);
-  border-color: var(--accent-cyan);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .chat-input-bar {
@@ -1510,15 +1761,25 @@ body {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
+  background: #ffffff;
   border: none;
-  color: white;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px var(--accent-cyan-glow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: var(--transition-smooth);
+}
+
+.chat-send-btn:hover {
+  transform: scale(1.06);
+  background: #e4e4e7;
+}
+
+[data-theme="light"] .chat-send-btn {
+  background: #09090b;
+  color: #ffffff;
 }
 
 .chat-send-btn:hover {
@@ -1601,10 +1862,16 @@ body {
   border: 1px solid var(--accent-emerald);
 }
 
-.recent-status-pill.cyan {
-  background: rgba(6, 182, 212, 0.15);
-  color: var(--accent-cyan);
-  border: 1px solid var(--accent-cyan);
+.recent-status-pill.lime {
+  background: rgba(204, 255, 0, 0.12);
+  color: #bef264;
+  border: 1px solid rgba(204, 255, 0, 0.3);
+}
+
+.recent-status-pill.white {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .recent-status-pill.amber {
@@ -1624,19 +1891,24 @@ body {
   width: 100%;
   height: 195px;
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.03) 100%),
-              radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.35) 0%, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.35) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(28, 28, 32, 0.95) 0%, rgba(16, 16, 18, 0.95) 100%),
+              radial-gradient(circle at 80% 20%, rgba(204, 255, 0, 0.12) 0%, transparent 60%);
   backdrop-filter: var(--backdrop-blur);
   -webkit-backdrop-filter: var(--backdrop-blur);
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), inset 0 1.5px 2px rgba(255, 255, 255, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1.5px 2px rgba(255, 255, 255, 0.2);
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+}
+
+[data-theme="light"] .liquid-wallet-card {
+  background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .liquid-wallet-card::before {
@@ -1646,7 +1918,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.12) 50%, transparent 60%);
   transform: rotate(30deg);
   animation: shimmerCard 8s infinite linear;
   pointer-events: none;
@@ -1746,10 +2018,20 @@ body {
 }
 
 .wallet-action-btn.primary {
-  background: linear-gradient(135deg, var(--accent-emerald) 0%, #059669 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   border: none;
-  box-shadow: 0 4px 15px var(--accent-emerald-glow);
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-action-btn.primary:hover {
+  background: #e4e4e7;
+}
+
+[data-theme="light"] .wallet-action-btn.primary {
+  background: #09090b;
+  color: #ffffff;
 }
 
 .wallet-action-btn:hover {
@@ -1839,7 +2121,6 @@ body {
    ========================================================================== */
 .liquid-navbar {
   position: absolute;
-<<<<<<< HEAD
   bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
@@ -1847,17 +2128,10 @@ body {
   max-width: 356px;
   height: 64px;
   border-radius: 36px;
-=======
-  bottom: 18px;
-  left: 14px;
-  right: 14px;
-  height: 62px;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.14);
-<<<<<<< HEAD
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.45),
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
@@ -1871,35 +2145,16 @@ body {
 }
 
 /* 1px gradient sheen line near top inner edge */
-=======
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.25), inset 0 -1px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 4px;
-  z-index: 40;
-  user-select: none;
-}
-
-/* 1px subtle top sheen line for glass curvature highlight */
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 .liquid-navbar::before {
   content: "";
   position: absolute;
   top: 1px;
-<<<<<<< HEAD
   left: 24px;
   right: 24px;
-=======
-  left: 20px;
-  right: 20px;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
   border-radius: 9999px;
   pointer-events: none;
-<<<<<<< HEAD
 }
 
 /* Sliding active capsule behind active item */
@@ -1915,8 +2170,6 @@ body {
   transition: transform 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
   pointer-events: none;
   z-index: 1;
-=======
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item {
@@ -1924,11 +2177,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
   gap: 3px;
-=======
-  gap: 2px;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
   color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   background: transparent;
@@ -1936,20 +2185,11 @@ body {
   width: 58px;
   height: 52px;
   border-radius: 26px;
-<<<<<<< HEAD
   transition: color 0.2s ease, transform 0.15s ease;
   position: relative;
   z-index: 2;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
-=======
-  transition: transform 0.15s ease-out, color 0.15s ease-out, background 0.2s ease, box-shadow 0.2s ease;
-  position: relative;
-  outline: none;
-}
-
-.nav-item:active {
-  transform: scale(0.92);
 }
 
 .nav-icon-wrap {
@@ -1959,50 +2199,33 @@ body {
   justify-content: center;
   width: 22px;
   height: 22px;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item svg {
   width: 20px;
   height: 20px;
-<<<<<<< HEAD
   stroke: currentColor;
   stroke-width: 1.8;
-  transition: stroke 0.2s ease, transform 0.18s ease;
-=======
-  stroke-width: 1.8;
-  stroke: currentColor;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.2s ease;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
+  transition: stroke 0.2s ease, transform 0.18s ease;
 }
 
 .nav-label {
   font-size: 10px;
-<<<<<<< HEAD
   font-weight: 600;
   letter-spacing: -0.1px;
   line-height: 1;
   color: inherit;
   transition: color 0.2s ease;
-=======
-  font-weight: 500;
-  letter-spacing: -0.1px;
-  line-height: 1;
-  color: inherit;
-  transition: color 0.2s ease, font-weight 0.2s ease;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
 }
 
 .nav-item:hover {
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Active State: Solid white-to-light-gray capsule behind just the active icon */
 .nav-item.active {
-<<<<<<< HEAD
   color: #09090b;
 }
 
@@ -2016,43 +2239,7 @@ body {
   font-weight: 700;
 }
 
-/* Optional red dot badge at bottom of nav icon (e.g. on Chat) */
-.nav-icon-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-=======
-  background: linear-gradient(180deg, #ffffff 0%, #f0f0f2 100%);
-  color: #0a0a0c;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.95), inset 0 -1px 1px rgba(0, 0, 0, 0.12);
-}
-
-.nav-item.active .nav-label {
-  color: #0a0a0c;
-  font-weight: 600;
-}
-
-.nav-item.active svg {
-  stroke: #0a0a0c;
-  transform: scale(1.04);
-}
-
-/* Small Red Dot Notification Badge at the bottom of the icon */
-.nav-dot-badge {
-  position: absolute;
-  bottom: -3px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  background: #ef4444;
-  border-radius: 50%;
-  box-shadow: 0 0 6px rgba(239, 68, 68, 0.9);
-  pointer-events: none;
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
-}
-
+/* Red dot badge at bottom of nav icon (e.g. on Chat) */
 .nav-dot-badge {
   position: absolute;
   bottom: -2px;
@@ -2214,8 +2401,8 @@ body {
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 0 3px var(--accent-cyan-glow);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .form-textarea {
@@ -2225,22 +2412,27 @@ body {
 
 .modal-submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-violet) 100%);
-  color: white;
+  background: #ffffff;
+  color: #000000;
   border: none;
-  padding: 12px;
-  border-radius: var(--radius-md);
+  padding: 13px;
+  border-radius: var(--radius-full);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 20px var(--accent-cyan-glow);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   margin-top: 10px;
   transition: var(--transition-smooth);
 }
 
 .modal-submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--accent-violet-glow);
+  background: #e4e4e7;
+}
+
+[data-theme="light"] .modal-submit-btn {
+  background: #09090b;
+  color: #ffffff;
 }
 
 /* Toast Container */
@@ -2324,7 +2516,7 @@ body {
 
 .island-bar {
   width: 2.5px;
-  background: var(--accent-cyan);
+  background: #bef264;
   border-radius: 2px;
   animation: barEqualizer 1s infinite alternate ease-in-out;
 }
@@ -2437,87 +2629,112 @@ body.perf-turbo .job-card::before {
           </div>
         </div>
 
-      <!-- Top Header (From Sketch: Account, Notifications, Title, Settings & Hire) -->
+      <!-- Top Header (Exact Match to Image: [P] Part-Time, Express Flyer & Pro..., PIN 6767) -->
       <header class="app-header">
         <div class="header-left">
-          <div class="avatar-btn" id="btn-open-account" title="Account Settings & Personalisation">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Alex Chen" id="header-avatar">
-          </div>
-          <button class="icon-btn" id="btn-open-notifs" title="Notifications">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-            <span class="notif-badge" id="header-notif-count">2</span>
-          </button>
-        </div>
-
-        <div class="app-brand">
-          <div class="app-title-pill">
-            <span class="live-dot"></span>
-            PART-TIME
-          </div>
+          <div class="brand-badge-p" id="btn-brand-avatar" title="Account Settings & Personalisation">P</div>
+          <span class="brand-text">Part-Time</span>
         </div>
 
         <div class="header-right">
-          <button class="hire-btn" id="btn-open-hire" title="Post a Vacancy (Employer)">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-            <span>HIRE</span>
-          </button>
-          <button class="icon-btn" id="btn-open-settings" title="Settings">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <div class="header-job-pill" id="header-shift-indicator" title="Active Shift">
+            <span>Express Flyer &amp; Pro...</span>
+          </div>
+          <button class="header-pin-pill" id="header-pin-btn" title="Click to copy check-in PIN">
+            <span>PIN 6767</span>
           </button>
         </div>
       </header>
-
-      <!-- KYC Verification & One-Time PIN Status Banner (From Sketch) -->
-      <div class="status-glass-banner">
-        <div class="kyc-badge" id="banner-kyc-btn" title="View KYC Age Verification Status">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>Age &ge; 18 Verified (KYC)</span>
-        </div>
-        <div class="otp-tag">
-          <span>PIN:</span>
-          <span class="otp-code" id="banner-otp" title="Click to copy check-in PIN">6767</span>
-        </div>
-      </div>
 
       <!-- Scrollable Main Viewport -->
       <main class="app-viewport">
 
         <!-- ==========================================
-             VIEW 1: HOME (Matching Sketch Feed)
+             VIEW 1: HOME (Exact Match to Provided Image)
              ========================================== -->
         <section class="view-panel active" id="view-home">
-          <!-- Search Section (Sketch: "Job Employee", "Search by Categories") -->
+          <!-- CARD 1: Universal Attendance PIN Card (Exact Match) -->
+          <div class="active-pin-card" id="pin-card-hero">
+            <div class="pin-card-left">
+              <div class="pin-icon-circle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="7.5" cy="15.5" r="4.5"/>
+                  <path d="m21 3-9.5 9.5"/>
+                  <path d="m15.5 8.5 2 2"/>
+                  <path d="m18 6 2 2"/>
+                </svg>
+              </div>
+              <div class="pin-card-info">
+                <div class="pin-status-row">
+                  <span class="pulse-lime-dot"></span>
+                  <span class="pin-status-title">UNIVERSAL ATTENDANCE PIN</span>
+                  <span class="pin-active-tag">ACTIVE</span>
+                </div>
+                <div class="pin-desc-text">Share code with on-ground supervisor to check in</div>
+              </div>
+            </div>
+            <button class="pin-white-copy-pill" id="btn-copy-pin-code" title="Click to copy PIN">
+              <span>6767</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect width="13" height="13" x="9" y="9" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+
+          <!-- CARD 2: Active Checked-in Shift Card (Exact Match) -->
+          <div class="checked-in-shift-card" id="checked-in-shift-card">
+            <div class="shift-top-row">
+              <div class="shift-title-block">
+                <h2 class="shift-role-title">EXPRESS FLYER &amp; PROMO DISTRIBUTOR</h2>
+                <div class="shift-employer-meta">Arun's Cafe &amp; Roasters • ₹100</div>
+              </div>
+              <div class="shift-status-block">
+                <span class="shift-onsite-badge">Checked in - On-site</span>
+                <span class="shift-rate-text">₹100</span>
+              </div>
+            </div>
+
+            <div class="shift-divider"></div>
+
+            <div class="shift-bottom-row">
+              <div class="shift-timing-info">
+                <span>Shift checked in at <strong class="shift-time-val">01:49 PM</strong></span>
+                <div class="shift-verified-badge">Attendance verified.</div>
+              </div>
+              <button class="btn-complete-shift-white" id="btn-complete-shift">Complete shift</button>
+            </div>
+          </div>
+
+          <!-- Search Bar (Exact placeholder from image) -->
           <div class="search-section">
             <div class="search-box">
-              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input type="text" class="search-input" id="search-jobs-input" placeholder="Search Job, Role or Employee..." autocomplete="off">
-              <button class="clear-search-btn" id="btn-clear-search">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
-              </button>
+              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input type="text" class="search-input" id="search-jobs-input" placeholder="Search gigs, cafes, events, Indiranagar..." autocomplete="off">
             </div>
           </div>
 
-          <!-- Categories Scroller -->
+          <!-- Filter Chips Row 1 (All gigs, Cafe & food, Promo & sales) -->
           <div class="categories-scroller" id="categories-container">
-            <button class="category-chip active" data-category="All">✨ All Gigs</button>
-            <button class="category-chip" data-category="Cafe">☕ Café & Food</button>
-            <button class="category-chip" data-category="Promotion">📢 Promo & Sales</button>
-            <button class="category-chip" data-category="Events">🎪 Events & Ushers</button>
-            <button class="category-chip" data-category="Logistics">📦 Logistics & Expo</button>
-            <button class="category-chip" data-category="Retail">🛍️ Retail Store</button>
-            <button class="category-chip" data-category="Delivery">🚀 Express Delivery</button>
+            <button class="category-chip active" data-category="All">All gigs</button>
+            <button class="category-chip" data-category="Cafe">☕ Cafe &amp; food</button>
+            <button class="category-chip" data-category="Promotion">📢 Promo &amp; sales</button>
+            <button class="category-chip" data-category="Events">🎪 Events &amp; ushers</button>
+            <button class="category-chip" data-category="Logistics">📦 Logistics &amp; expo</button>
           </div>
 
-          <!-- Section Heading -->
-          <div class="section-header">
-            <div class="section-title">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              <span>Job Offers & Vacancies</span>
-            </div>
-            <span class="section-subtitle" id="jobs-count-text">Showing 6 jobs</span>
+          <!-- Tier Chips Row 2 (Tier: ₹100 Micro, ₹500 Half-day, ₹1,000 Standard) -->
+          <div class="tier-chips-row" id="tier-chips-row">
+            <button class="tier-chip" data-wage="100">Tier: ₹100 Micro</button>
+            <button class="tier-chip" data-wage="500">₹500 Half-day</button>
+            <button class="tier-chip" data-wage="1000">₹1,000 Standard</button>
+            <button class="tier-chip" data-wage="10000">₹10,000 Contract</button>
           </div>
 
-          <!-- Jobs Grid (Cards matching ₹100, ₹500, ₹1000, ₹10,000 from sketch) -->
+          <!-- Subheading from Image -->
+          <div class="subheading-stream">
+            <span class="subheading-dot">•</span>
+            <span id="jobs-count-text">Showing 1 shift within 1 km</span>
+          </div>
+
+          <!-- Job Cards Feed (Matching Arun's Cafe card in image) -->
           <div class="jobs-grid" id="home-jobs-grid">
             <!-- Dynamically populated from data.js -->
           </div>
@@ -2716,82 +2933,59 @@ body.perf-turbo .job-card::before {
       <!-- ==========================================
            BOTTOM NAVBAR (5 Tabs: Home, Map, Chat, Recent, Wallet)
            ========================================== -->
-<<<<<<< HEAD
       <!-- ==========================================
            BOTTOM NAVBAR: Floating Liquid Glass Pill (Apple iOS Style)
            ========================================== -->
-      <nav class="liquid-navbar" id="liquid-navbar">
+      <nav class="liquid-navbar" id="liquid-navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-indicator-pill" id="nav-indicator-pill"></div>
 
         <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
-          </svg>
-=======
-      <nav class="liquid-navbar" role="navigation" aria-label="Main Navigation">
-        <button class="nav-item active" id="nav-home" data-view="view-home" title="Home Feed">
           <div class="nav-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+            </svg>
           </div>
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Home</span>
         </button>
 
         <button class="nav-item" id="nav-map" data-view="view-map" title="Live Radar Map">
-<<<<<<< HEAD
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/>
-            <path d="M9 3v15"/>
-            <path d="M15 6v15"/>
-          </svg>
-=======
           <div class="nav-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/>
+              <path d="M9 3v15"/>
+              <path d="M15 6v15"/>
+            </svg>
           </div>
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Map</span>
         </button>
 
         <button class="nav-item" id="nav-chat" data-view="view-chat" title="Messages & Offers">
           <div class="nav-icon-wrap">
-<<<<<<< HEAD
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
             </svg>
-            <span class="nav-dot-badge"></span>
-=======
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             <span class="nav-dot-badge" id="nav-chat-dot"></span>
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           </div>
           <span class="nav-label">Chat</span>
         </button>
 
         <button class="nav-item" id="nav-recent" data-view="view-recent" title="Recent Shifts">
-<<<<<<< HEAD
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <polyline points="12 7 12 12 15 15"/>
-          </svg>
-=======
           <div class="nav-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 15 15"/>
+            </svg>
           </div>
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Recent</span>
         </button>
 
         <button class="nav-item" id="nav-wallet" data-view="view-wallet" title="Wallet & Payouts">
-<<<<<<< HEAD
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="5" width="20" height="14" rx="2"/>
-            <line x1="2" y1="10" x2="22" y2="10"/>
-          </svg>
-=======
           <div class="nav-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/>
+              <line x1="2" y1="10" x2="22" y2="10"/>
+            </svg>
           </div>
->>>>>>> f5a5f88 (feat(ui): redesign floating liquid glass bottom navigation bar and update documentation)
           <span class="nav-label">Wallet</span>
         </button>
       </nav>
@@ -3120,7 +3314,8 @@ const INITIAL_DATA = {
       openSlots: 2,
       checkInPin: "6767",
       isUrgent: true,
-      badgeColor: "cyan"
+      badgeColor: "lime",
+      cardHeroImage: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=600&q=80"
     },
     {
       id: "job-102",
@@ -3141,7 +3336,8 @@ const INITIAL_DATA = {
       openSlots: 1,
       checkInPin: "6767",
       isUrgent: false,
-      badgeColor: "amber"
+      badgeColor: "amber",
+      cardHeroImage: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80"
     },
     {
       id: "job-103",
@@ -3162,7 +3358,8 @@ const INITIAL_DATA = {
       openSlots: 4,
       checkInPin: "6767",
       isUrgent: true,
-      badgeColor: "emerald"
+      badgeColor: "emerald",
+      cardHeroImage: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80"
     },
     {
       id: "job-104",
@@ -3183,7 +3380,8 @@ const INITIAL_DATA = {
       openSlots: 1,
       checkInPin: "6767",
       isUrgent: false,
-      badgeColor: "purple"
+      badgeColor: "lime",
+      cardHeroImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80"
     },
     {
       id: "job-105",
@@ -3362,7 +3560,7 @@ const INITIAL_DATA = {
       wage: "\u20B91,000",
       date: "Starts Tomorrow, 9:00 AM",
       status: "Scheduled",
-      statusColor: "cyan",
+      statusColor: "lime",
       pinUsed: "6767"
     },
     {
@@ -3444,7 +3642,8 @@ const state = {
   recentActivities: [...INITIAL_DATA.recentActivities],
   notifications: [...INITIAL_DATA.notifications],
   user: { ...INITIAL_DATA.user },
-  selectedJobForApply: null
+  selectedJobForApply: null,
+  selectedWageTier: null
 };
 
 // Web Audio API Procedural Sound Engine
@@ -3640,17 +3839,26 @@ function renderJobs() {
 
   const filtered = state.jobs.filter(job => {
     const matchesCategory = state.selectedCategory === 'All' || job.category === state.selectedCategory;
+    const matchesWageTier = !state.selectedWageTier || 
+      (state.selectedWageTier === 100 && job.wage <= 100) ||
+      (state.selectedWageTier === 500 && job.wage === 500) ||
+      (state.selectedWageTier === 1000 && job.wage === 1000) ||
+      (state.selectedWageTier === 10000 && job.wage >= 10000);
     const q = state.searchQuery.toLowerCase().trim();
     const matchesSearch = !q || 
       job.title.toLowerCase().includes(q) || 
       job.employer.toLowerCase().includes(q) ||
       job.category.toLowerCase().includes(q) ||
       job.location.toLowerCase().includes(q);
-    return matchesCategory && matchesSearch;
+    return matchesCategory && matchesWageTier && matchesSearch;
   });
 
   if (countText) {
-    countText.textContent = `Showing ${filtered.length} gigs nearby`;
+    if (filtered.length === 1) {
+      countText.textContent = `Showing 1 shift within 1 km`;
+    } else {
+      countText.textContent = `Showing ${filtered.length} shifts nearby`;
+    }
   }
 
   if (filtered.length === 0) {
@@ -3665,48 +3873,43 @@ function renderJobs() {
   }
 
   grid.innerHTML = filtered.map(job => {
-    const badgeColorClass = job.badgeColor || 'cyan';
+    const isPromo = job.category === 'Promotion' || (job.tags && job.tags.some(t => t.toLowerCase().includes('promo') || t.toLowerCase().includes('flyer')));
     return `
-      <div class="job-card" data-job-id="${job.id}">
-        <div class="card-top">
-          <div class="employer-info">
-            <img src="${job.employerAvatar}" class="emp-avatar" alt="${job.employer}">
-            <div class="emp-meta">
-              <span class="emp-name">${job.employer}</span>
-              <span class="emp-rating">★ ${job.employerRating} • ${job.category}</span>
+      <div class="job-card-dark" data-job-id="${job.id}">
+        <div class="job-card-hero" style="background-image: url('${job.cardHeroImage || job.employerAvatar}');">
+          <div class="rating-badge-pill">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>${job.employerRating || '4.8'}</span>
+          </div>
+        </div>
+
+        <div class="job-card-content">
+          <div class="job-card-main-row">
+            <div>
+              <div class="job-card-employer-title">${job.employer}</div>
+              <div class="job-card-sub">${job.title}</div>
+            </div>
+            <div class="job-card-wage-block">
+              <span class="job-card-wage-val">\u20B9${job.wage.toLocaleString()}</span>
+              <span class="job-card-wage-period">/${job.wageUnit || 'per hour'}</span>
             </div>
           </div>
-          <div class="wage-badge ${badgeColorClass}">
-            <div class="wage-amount">\u20B9${job.wage.toLocaleString()}</div>
-            <div class="wage-unit">${job.wageUnit}</div>
+
+          <div class="job-card-tags-row">
+            ${isPromo ? `<span class="job-tag-lime"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Promotion</span>` : `<span class="job-tag-lime">★ Verified</span>`}
+            ${job.isUrgent ? `<span class="job-tag-urgent">Urgent</span>` : ''}
           </div>
-        </div>
 
-        <div class="job-title">${job.title}</div>
-
-        <div class="job-tags-row">
-          ${job.tags.map(t => `<span class="job-tag">${t}</span>`).join('')}
-        </div>
-
-        <div class="job-meta-row">
-          <div class="meta-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>${job.duration}</span>
+          <div class="job-card-location-row">
+            📍 ${job.distanceKm || '0.8'}km away • ${job.openSlots || 2} slots
           </div>
-          <div class="meta-item">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>${job.distanceKm} km • ${job.location}</span>
-          </div>
-        </div>
 
-        <div class="card-actions">
-          <button class="apply-btn btn-apply-job" data-id="${job.id}">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            <span>Apply Now (PIN 6767)</span>
-          </button>
-          <button class="chat-quick-btn btn-card-chat" data-id="${job.id}" title="Message Employer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-          </button>
+          <div class="job-card-actions">
+            <button class="btn-card-apply btn-apply-job" data-id="${job.id}">Apply (PIN 6767)</button>
+            <button class="btn-card-chat-dark btn-card-chat" data-id="${job.id}" title="Message Employer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     `;
@@ -3733,7 +3936,7 @@ function renderJobs() {
     });
   });
 
-  grid.querySelectorAll('.job-card').forEach(card => {
+  grid.querySelectorAll('.job-card-dark').forEach(card => {
     card.addEventListener('click', () => {
       const jobId = card.getAttribute('data-job-id');
       initiateApply(jobId);
@@ -3749,7 +3952,7 @@ function renderMap() {
   container.innerHTML = state.jobs.map(job => {
     const x = job.coords.x;
     const y = job.coords.y;
-    const colorClass = job.badgeColor || 'cyan';
+    const colorClass = job.badgeColor || 'lime';
     return `
       <div class="map-pin" style="left: ${x}%; top: ${y}%;" data-job-id="${job.id}">
         <div class="pin-bubble ${colorClass}">
@@ -4164,17 +4367,84 @@ function setupEventListeners() {
     showToast(`Profile saved as ${roleSelect.options[roleSelect.selectedIndex].text}!`, "✨");
   });
 
-  document.getElementById('btn-open-hire').addEventListener('click', () => openModal('modal-hire'));
-  document.getElementById('btn-open-settings').addEventListener('click', () => openModal('modal-settings'));
-  document.getElementById('btn-open-notifs').addEventListener('click', () => {
-    renderNotifications();
-    openModal('modal-notifs');
-  });
-  document.getElementById('banner-kyc-btn').addEventListener('click', () => openModal('modal-account'));
-  document.getElementById('banner-otp').addEventListener('click', () => {
+  const openHireBtn = document.getElementById('btn-open-hire');
+  if (openHireBtn) openHireBtn.addEventListener('click', () => openModal('modal-hire'));
+
+  const openSettingsBtn = document.getElementById('btn-open-settings');
+  if (openSettingsBtn) openSettingsBtn.addEventListener('click', () => openModal('modal-settings'));
+
+  const openNotifsBtn = document.getElementById('btn-open-notifs');
+  if (openNotifsBtn) {
+    openNotifsBtn.addEventListener('click', () => {
+      renderNotifications();
+      openModal('modal-notifs');
+    });
+  }
+
+  // Header Avatar -> Account Modal
+  const brandAvatar = document.getElementById('btn-brand-avatar');
+  if (brandAvatar) brandAvatar.addEventListener('click', () => openModal('modal-account'));
+
+  // Header Shift Indicator -> Scroll to checked-in shift card
+  const shiftIndicator = document.getElementById('header-shift-indicator');
+  if (shiftIndicator) {
+    shiftIndicator.addEventListener('click', () => {
+      sounds.playTap();
+      document.getElementById('checked-in-shift-card')?.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Check-in PIN 6767 Copy Handlers (from image Card 1 & Header Pill)
+  const copyPin = () => {
     sounds.playTap();
-    navigator.clipboard?.writeText('6767');
-    showToast("Check-in PIN 6767 copied to clipboard!", "📋");
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText('6767').catch(() => {});
+    }
+    showToast("Universal Attendance PIN 6767 copied to clipboard!", "📋");
+  };
+
+  const copyPinBtn = document.getElementById('btn-copy-pin-code');
+  if (copyPinBtn) copyPinBtn.addEventListener('click', copyPin);
+
+  const headerPinBtn = document.getElementById('header-pin-btn');
+  if (headerPinBtn) headerPinBtn.addEventListener('click', copyPin);
+
+  // Complete Shift Button (from image Card 2)
+  const completeShiftBtn = document.getElementById('btn-complete-shift');
+  if (completeShiftBtn) {
+    completeShiftBtn.addEventListener('click', () => {
+      sounds.playCashout();
+      addWalletCredit(100, "Shift Completed: Express Flyer & Promo Distributor");
+      completeShiftBtn.textContent = "Completed ✓";
+      completeShiftBtn.disabled = true;
+      completeShiftBtn.style.opacity = "0.7";
+      completeShiftBtn.style.cursor = "default";
+      const shiftCard = document.getElementById('checked-in-shift-card');
+      if (shiftCard) {
+        const onsiteBadge = shiftCard.querySelector('.shift-onsite-badge');
+        if (onsiteBadge) {
+          onsiteBadge.textContent = "Payout Settled ✓";
+          onsiteBadge.style.color = "#ccff00";
+        }
+      }
+      showToast("🎉 Shift completed! ₹100 instantly credited to your wallet!", "💰");
+    });
+  }
+
+  // Tier chips row (Tier: ₹100 Micro, ₹500 Half-day, ₹1,000 Standard)
+  document.querySelectorAll('.tier-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      sounds.playTap();
+      const wasActive = chip.classList.contains('active');
+      document.querySelectorAll('.tier-chip').forEach(c => c.classList.remove('active'));
+      if (!wasActive) {
+        chip.classList.add('active');
+        state.selectedWageTier = parseInt(chip.getAttribute('data-wage'), 10);
+      } else {
+        state.selectedWageTier = null;
+      }
+      renderJobs();
+    });
   });
 
   document.querySelectorAll('.nav-item').forEach(item => {
@@ -4196,17 +4466,21 @@ function setupEventListeners() {
 
   const searchInput = document.getElementById('search-jobs-input');
   const clearSearchBtn = document.getElementById('btn-clear-search');
-  searchInput.addEventListener('input', (e) => {
-    state.searchQuery = e.target.value;
-    clearSearchBtn.style.display = state.searchQuery ? 'flex' : 'none';
-    renderJobs();
-  });
-  clearSearchBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    state.searchQuery = '';
-    clearSearchBtn.style.display = 'none';
-    renderJobs();
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      state.searchQuery = e.target.value;
+      if (clearSearchBtn) clearSearchBtn.style.display = state.searchQuery ? 'flex' : 'none';
+      renderJobs();
+    });
+  }
+  if (clearSearchBtn && searchInput) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      state.searchQuery = '';
+      clearSearchBtn.style.display = 'none';
+      renderJobs();
+    });
+  }
 
   // Map controls
   const radiusSelector = document.getElementById('map-radius-selector');
@@ -4356,21 +4630,31 @@ function initClock() {
   setInterval(update, 10000);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  applyTheme(state.theme);
-  setupEventListeners();
-  initClock();
-  renderJobs();
-  renderMap();
-  renderChats();
-  renderRecent();
-  renderWallet();
-  updateChatBadges();
-  updateNotifBadge();
-  setTimeout(updateNavIndicator, 60);
-  window.addEventListener('resize', updateNavIndicator);
-  showToast("Welcome to PART-TIME on iPhone 15 Pro Max!", "💎");
-});
+function initApp() {
+  try {
+    applyTheme(state.theme);
+    setupEventListeners();
+    initClock();
+    renderJobs();
+    renderMap();
+    renderChats();
+    renderRecent();
+    renderWallet();
+    updateChatBadges();
+    updateNotifBadge();
+    setTimeout(updateNavIndicator, 60);
+    window.addEventListener('resize', updateNavIndicator);
+    showToast("Welcome to PART-TIME on iPhone 15 Pro Max!", "💎");
+  } catch (err) {
+    console.error("Init App Error:", err);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 </script>
 </body>

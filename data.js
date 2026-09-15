@@ -1,4 +1,4 @@
-﻿const INITIAL_DATA = {
+const INITIAL_DATA = {
   user: {
     name: "Alex Chen",
     role: "Freelance Specialist & Shift Worker",

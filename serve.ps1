@@ -1,4 +1,4 @@
-﻿# PART-TIME Local HTTP Dev Server (Zero Dependencies)
+# PART-TIME Local HTTP Dev Server (Zero Dependencies)
 param([int]$Port = 8080)
 
 $listener = New-Object System.Net.HttpListener

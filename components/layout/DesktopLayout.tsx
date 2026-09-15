@@ -5,7 +5,7 @@ import { useMarketplace } from '@/context/MarketplaceContext';
 import { NavigationSidebar } from './NavigationSidebar';
 import { Header } from './Header';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Compass01Icon, Location01Icon } from '@hugeicons/core-free-icons';
+import { Compass01Icon } from '@hugeicons/core-free-icons';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { SearchBar } from '@/components/discovery/SearchBar';
@@ -40,27 +40,23 @@ export function DesktopLayout() {
 
         <main className="flex-1 p-6 flex gap-6 overflow-y-auto max-w-[1700px] w-full mx-auto">
           {/* Central Column: Switchable based on activeTab */}
-          <div
-            className={`flex flex-col gap-5 ${
-              activeTab === 'home' ? 'flex-1 min-w-[480px]' : 'w-full'
-            }`}
-          >
+          <div className="flex flex-col gap-5 max-w-4xl w-full mx-auto">
             {activeTab === 'home' && (
               <>
-                {/* Attendance OTP Banner */}
-                <OtpBanner />
-
-                {/* Active Shift Tracker */}
-                <ActiveShiftTracker />
-
-                {/* Search Bar & Filters (Level 0 flat elevation with subtle border contrast) */}
+                {/* 1. Search Bar & Filters on Top */}
                 <Card className="flex flex-col gap-3.5 p-5 bg-white dark:bg-[#121212] border border-[#efefef] dark:border-[#282828] rounded-2xl transition-colors duration-200">
                   <SearchBar />
                   <CategoryPills />
                   <WageTierFilter />
                 </Card>
 
-                {/* Shifts Opportunity Feed */}
+                {/* 2. Attendance OTP Banner */}
+                <OtpBanner />
+
+                {/* 3. Active Shift Tracker */}
+                <ActiveShiftTracker />
+
+                {/* 4. Shifts Opportunity Feed */}
                 <ShiftFeed />
               </>
             )}
@@ -161,42 +157,6 @@ export function DesktopLayout() {
               </div>
             )}
           </div>
-
-          {/* 3. Right Column: Split-Pane Interactive Radar Map & Docked Quick-Inspector (on Home Tab) */}
-          {activeTab === 'home' && (
-            <div className="w-[440px] xl:w-[500px] shrink-0 flex flex-col gap-4 sticky top-20 h-[calc(100vh-110px)] overflow-y-auto no-scrollbar">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-[#5e5e5e] dark:text-[#afafaf]">
-                  Spatial radar sweep
-                </span>
-                <RadiusControl />
-              </div>
-
-              {/* Radar Canvas */}
-              <div className="h-[360px] shrink-0">
-                <RadarCanvas />
-              </div>
-
-              {/* Docked Inspector side sheet for selected job */}
-              {selectedJob ? (
-                <div className="animate-in fade-in slide-in-from-top-4 duration-200">
-                  <ShiftInspector />
-                </div>
-              ) : (
-                <Card className="p-5 rounded-2xl bg-white dark:bg-[#121212] border border-[#efefef] dark:border-[#282828] text-center text-xs text-[#5e5e5e] dark:text-[#afafaf] flex flex-col items-center justify-center gap-1.5 transition-colors duration-200">
-                  <div className="w-8 h-8 rounded-full bg-[#efefef] dark:bg-[#1a1a1a] flex items-center justify-center text-black dark:text-white mb-1">
-                    <HugeiconsIcon icon={Location01Icon} className="w-4 h-4 stroke-[1.75]" />
-                  </div>
-                  <span className="font-medium text-black dark:text-white leading-tight">
-                    Explore geo-tagged wage pins
-                  </span>
-                  <p className="text-[11px] text-[#5e5e5e] dark:text-[#afafaf] max-w-xs font-normal">
-                    Tap any marker on the map to preview shift duties, attendance PIN 6767, and apply.
-                  </p>
-                </Card>
-              )}
-            </div>
-          )}
         </main>
       </div>
 
